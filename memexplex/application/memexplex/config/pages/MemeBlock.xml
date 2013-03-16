@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MemeBlock>
+    <recordDataXpath>
+        MemeList/Meme
+    </recordDataXpath>
+    <formfield>
+        <label>Disseminate</label>
+        <type>CheckboxDisseminate</type>
+        <id>disseminate</id>
+        <valueXpath>Published</valueXpath>
+        <span>
+        	<custom>style="float: right;"</custom>
+        </span>
+        <labelInline/>
+        <nobreak/>
+    </formfield>
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>datepublished</id>
+        <valueXpath>DatePublished</valueXpath>
+    </formfield>
+    <formfield>
+        <label>Title</label>
+        <type>Text</type>
+        <id>memeTitle</id>
+        <valueXpath>Title</valueXpath>
+        <methods>
+        	<setSize>75</setSize>
+        	<setMaxlength>250</setMaxlength>
+        </methods>
+    </formfield>
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>id</id>
+        <valueXpath>Id</valueXpath>
+    </formfield>
+    <formfield>
+        <label>Summary/Commentary</label>
+        <type>TextAreaRich</type>
+        <id>text</id>
+        <valueXpath>Text</valueXpath>
+        <methods>
+        	<setRows>10</setRows>
+        	<setCols>57</setCols>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>Direct Quote</label>
+        <type>TextAreaRich</type>
+        <id>quote</id>
+        <valueXpath>Quote</valueXpath>
+        <methods>
+        	<setRows>10</setRows>
+        	<setCols>57</setCols>
+        </methods>
+    </formfield>
+    <formfield>
+        <label><![CDATA[Folksonomies (comma-separated) <a href="http://www.memexplex.com/Meme/id=213" target="_blank">?</a>]]></label>
+        <type>Taxonomy</type>
+        <id>memeTaxonomies</id>
+        <valueXpath>TaxonomyList</valueXpath>
+        <methods>
+        	<setSize>75</setSize>
+        	<setMaxlength>250</setMaxlength>
+        </methods>
+    </formfield>
+    <!-- formfield>
+        <label>Add to Schema</label>
+        <type>Select</type>
+        <id>schemaid</id>
+        <valueXpath></valueXpath>
+        <valueDisplayXpath></valueDisplayXpath>
+        <selectValuesXpath>SchemaList/Schema/Id</selectValuesXpath>
+        <selectDescriptionsXpath>SchemaList/Schema/Title</selectDescriptionsXpath>
+        <methods>
+        	<setOnChangeJavaScript>$('delta').value = 'Y'</setOnChangeJavaScript>
+        </methods>
+    </formfield -->
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>delta</id>
+    </formfield>
+</MemeBlock>

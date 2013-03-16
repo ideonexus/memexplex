@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<ajaxCall>
+	<form>
+		<id>ajaxForm</id>
+	</form>
+	<ajaxCall>
+		<formfield>
+		    <type>Hidden</type>
+		    <id>totalRows</id>
+		    <valueXpath>Filters/PagingFilter/TotalRows</valueXpath>
+		</formfield>
+	</ajaxCall>
+</ajaxCall>

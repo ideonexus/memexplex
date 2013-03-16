@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Batch Memes</title>
+	<menu>none</menu>
+
+    <forms>
+        <form>
+            <id>reportFilter</id>
+        </form>
+        <form>
+            <id>frmEditMemes</id>
+            <formfield>
+                <type>ButtonSave</type>
+                <id>btnSave</id>
+                <methods>
+                    <setOnClickJavaScript>FormValidation('frmEditMemes');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+        </form>
+
+        <Meme>
+            <formfield>
+                <label>Title</label>
+                <type>Text</type>
+                <id>title</id>
+                <valueXpath>Title</valueXpath>
+                <tableCellProperties>
+                    <style>text-align:left;</style>
+                </tableCellProperties>
+            </formfield>
+            <formfield>
+                <label></label>
+                <type>Hidden</type>
+                <id>id</id>
+                <valueXpath>Id</valueXpath>
+            </formfield>
+            <formfield>
+                <label>Text</label>
+                <type>TextAreaRich</type>
+                <id>text</id>
+                <valueXpath>Text</valueXpath>
+            </formfield>
+            <formfield>
+                <label>Quote</label>
+                <type>TextAreaRich</type>
+                <id>quote</id>
+                <valueXpath>Quote</valueXpath>
+            </formfield>
+            <tablefield>
+                <type>ButtonMore</type>
+                <id>moreButton</id>
+                <methods>
+                	<setTableId>MemeTableEdit</setTableId>
+                	<setRowCountField>hidMemeTableRowCount</setRowCountField>
+                    <setDefaultMoreJavaScript></setDefaultMoreJavaScript>
+                </methods>
+            </tablefield>
+            <tablefield>
+                <type>HiddenRowCount</type>
+                <id>hidMemeTableRowCount</id>
+            </tablefield>
+        </Meme>
+
+    </forms>
+
+</root>

@@ -1,0 +1,572 @@
+/**
+   File Name: memexplex_style.css
+   Created: 06/01/2010
+   Created By: Ryan Somma
+   Description: Style sheet defining the appearance of the MemexPlex application.
+*/
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+html,
+body {
+    background-color: #9966ff;
+    height: 100%;
+    font-family: "Arial",sans-serif;
+    color: #000000;
+    font-weight: normal;
+    font-size: 10pt;
+    text-align: left;
+}
+
+#mainbody {
+    width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    position: relative;
+    min-height: 100%;
+    -webkit-border-radius: 20px;    /* for Safari and Chrome */
+    -moz-border-radius: 20px;       /* for Firefox */
+    -khtml-border-radius: 20px;      /* for Linux */
+    border-radius: 20px;             /* CSS3 */
+}
+
+#modalbody {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+    position: relative;
+    min-height: 100%;
+}
+
+#header {
+    width: 770px;
+    -webkit-border-radius: 20px;    /* for Safari */
+    -moz-border-radius: 20px;       /* for Firefox */
+    -khtml-border-radius: 20px;      /* for Linux */
+    border-radius: 20px
+}
+
+#content {
+   width: 780px;
+   padding-bottom: 30px;   /* Height of the footer */
+}
+
+#footer {
+    width: 780px;
+    position: absolute;
+    bottom: 0;
+    height: 30px;   /* Height of the footer */
+    text-align: center;
+    -webkit-border-radius: 20px;    /* for Safari */
+    -moz-border-radius: 20px;       /* for Firefox */
+    -khtml-border-radius: 20px;      /* for Linux */
+    border-radius: 20px
+}
+
+#headerimage {
+	position:relative;
+	left:10px;
+	top:3px;
+}
+
+#tagline {
+    font-weight:bold;
+    font-size:24pt;
+    color:#000066;
+	position:relative;
+	top:6px;
+	right:5px;
+	float:right;
+}
+
+#taglineimage {
+	position:relative;
+	top:-2px;
+	vertical-align:middle;
+	padding-left:7px;
+}
+
+/* Borders for List Items */
+.divlistitem,
+.memedivlistitem,
+.referencedivlistitem,
+.schemadivlistitem,
+.tripledivlistitem,
+.modaldivlistitem,
+.modalmemedivlistitem,
+.modalreferencedivlistitem,
+.modalschemadivlistitem,
+.modaltripledivlistitem,
+.memedivlistitemquote,
+.modalmemedivlistitemquote
+{
+	width:760px;
+	text-align:left;
+	white-space:normal;
+	background-color:#f5f5f5;
+	border: 1px solid #cc66cc; 
+	padding: 5pt;
+	margin: 5px 2px 5px 2px;
+    -webkit-border-radius: 10px;    /* for Safari and Chrome */
+    -moz-border-radius: 10px;       /* for Firefox */
+    -khtml-border-radius:10px;      /* for Linux */
+    border-radius: 10px;             /* CSS3 */
+}
+
+.memedivlistitem,
+.modalmemedivlistitem
+{
+	z-index: 10;
+	background-color:#ffffff;
+	border: 2px solid #0000ff;
+}
+
+.memedivlistitemquote,
+.modalmemedivlistitemquote
+{
+	z-index: 0;
+	border: 2px solid #9370db;
+	background-color:#e0ffff;
+}
+
+.referencedivlistitem,
+.modalreferencedivlistitem
+{
+	border: 2px solid #ff0000; 
+}
+
+.schemadivlistitem,
+.modalschemadivlistitem
+{
+	border: 2px solid #00ff00; 
+}
+
+.tripledivlistitem,
+.modaltripledivlistitem
+{
+	border: 2px solid #00ffff; 
+}
+
+.memedivlistitem:hover,
+.modalmemedivlistitem:hover,
+.referencedivlistitem:hover,
+.modalreferencedivlistitem:hover,
+.schemadivlistitem:hover,
+.modalschemadivlistitem:hover,
+.tripledivlistitem:hover,
+.modaltripledivlistitem:hover
+{
+	border: 2px ridge #cc00ff;
+	background-color:#ffff66;
+}
+
+.modaldivlistitem,
+.modalmemedivlistitem,
+.modalreferencedivlistitem,
+.modalschemadivlistitem,
+.modaltripledivlistitem,
+.triplesubjectobject,
+.modalmemedivlistitemquote
+{
+	width:560px;
+}
+
+.quoteDisplay
+{
+	display:none;
+}
+
+/* Borders for List Items */
+
+.predicatedisplay
+{
+    font-weight:bold;
+    font-size:24pt;
+    color:#000066;
+    text-align:center;
+}
+
+.reference
+{
+    margin:0px;
+	margin-left: auto;
+	margin-right: auto;
+	white-space:normal;
+}
+
+form
+{
+    display:inline;
+}
+
+.tableform
+{
+    border:1px groove gray;
+    table-layout:auto;
+    text-align:center;
+    white-space:nowrap;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+.tableform th
+{
+    padding:3px;
+    color:#ffffff;
+    background-color:#000066;
+}
+
+.tableform td
+{
+    padding:3px;
+}
+
+table.layout
+{
+    width:10px;
+    align:center;
+    white-space:nowrap;
+}
+
+.largeBlue,.largeblue
+{
+    font-weight:bold;
+    font-size:14pt;
+    color:#000066;
+    text-align:center;
+}
+
+.largeRed,.largered
+{
+    font-weight:bold;
+    font-size:14pt;
+    color:#ff0000;
+    text-align:center;
+}
+
+.titleblock
+{
+	white-space:normal;
+    color:#000066;
+}
+
+.textblock
+{
+	white-space:normal;
+	text-align:left;
+}
+
+fieldset
+{
+	text-align:left;
+	width: 525px;
+	padding: 5px;
+    -webkit-border-radius: 10px;    /* for Safari and Chrome */
+    -moz-border-radius: 10px;       /* for Firefox */
+    -khtml-border-radius: 10px;      /* for Linux */
+    border-radius: 10px;             /* CSS3 */
+}
+
+p
+{
+	display:block;
+	margin-bottom:10px;
+}
+
+ol, ul
+{
+	padding-left: 20px;
+}
+
+ul
+{
+	padding-left: 15px;
+}
+
+/* END FONT PROPERTIES */
+
+/* BEGIN LINK PROPERTIES */
+
+a
+{
+    text-decoration:none;
+    white-space:nowrap;
+}
+
+a:link
+{
+    color:#000066;
+}
+
+a:visited
+{
+    color:#000066;
+}
+
+a:active
+{
+    color:#cc66cc;
+}
+
+a:hover
+{
+    color:#cc66cc;
+}
+
+a.NoLink
+{
+    text-decoration:none;
+}
+
+/* END LINK PROPERTIES */
+
+/* BEGIN ERROR MESSAGE PROPERTIES */
+
+.Normal
+{
+    color:#000000;
+    font-weight:normal;
+}
+
+.ErrorBlue
+{
+    font-weight:bold;
+    color:#0000ff;
+}
+
+.ErrorGreen
+{
+    font-weight:bold;
+    color:#008000;
+}
+
+.ErrorRed
+{
+    font-weight:bold;
+    color:#ff0000;
+}
+
+.ExclamationRed
+{
+    font-size:12pt;
+    font-weight:bold;
+    color:#ff0000;
+}
+
+/* END ERROR MESSAGE PROPERTIES */
+
+/* BEGIN FORM ELEMENT PROPERTIES */
+
+select
+{
+    margin:1px;
+}
+
+input
+{
+    margin:1px;
+}
+
+/* END FORM ELEMENT PROPERTIES */
+
+/* BEGIN HEADER-SPECIFIC PROPERTIES */
+
+.header
+{
+    font-weight:bold;
+    font-style:italic;
+    font-size:18pt;
+    color:#000066;
+    width:100%;
+    border-style:none;
+    text-align:left;
+	vertical-align:middle;
+}
+
+.header img
+{
+	vertical-align:middle;
+}
+
+span.PageTitle
+{
+    font-weight:normal;
+    font-size:10pt;
+    font-style:normal;
+    color:#000000;
+}
+
+/* END HEADER-SPECIFIC PROPERTIES */
+
+/* BEGIN MISCELLANEOUS PROPERTIES */
+
+img
+{
+    border:0px;
+}
+
+hr 
+{
+	width: 90%;
+	text-align: center;/*this will align it for IE*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* END MISCELLANEOUS PROPERTIES */
+
+/* BEGIN DYNAMIC MENU PROPERTIES */
+/*
+div.subMainMenu
+{
+    background-color:#DADAFF;
+    border:.1em;
+    border-style:solid;
+}
+*/
+
+#menu
+{
+    margin: 0;
+    padding: 0;
+}
+
+#menu li
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+}
+
+#menu li a
+{
+    margin: 0 1px 0 0;
+    text-align: center;
+}
+
+#menu div
+{
+    position: absolute;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid #5970B2;
+    z-index: 999;
+}
+
+#menu div a
+{
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 5px 10px;
+    width: auto;
+    white-space: nowrap;
+    text-align: left;
+    text-decoration: none;
+    background: #FFFFFF;
+    color: #000066;
+}
+
+#menu div a:hover
+{
+    background: #000066;
+    color: #FFFFFF;
+}
+
+/* IFRAME TO PUT UNDER DIV (SEE isdJavaScriptFunctions.js) */
+.frmcls
+{
+    position:absolute;
+    z-index:998;
+    visibility: hidden;
+}
+/* END DYNAMIC MENU PROPERTIES */
+
+/* PAGING NAVIGATION CSS */
+.pagination 
+{  
+	display: block;  
+	text-align: center;
+	position:relative;
+	top:8px;
+}  
+.pagination a
+{  
+	color: #000066;
+	background-color: white;
+	text-decoration: none;
+	border: 1px solid #000066;
+	padding:1px 5px 1px 5px;
+	font-weight:bold;
+	vertical-align:middle;
+	margin-left:3px;
+    -webkit-border-radius: 4px;    /* for Safari */
+    -moz-border-radius: 4px;       /* for Firefox */
+    -khtml-border-radius: 4px;      /* for Linux */
+    border-radius: 4px
+}  
+.pagination span
+{  
+	color: #000066;
+	background-color: white;
+	padding:1px 5px 1px 5px;
+	font-weight:bold;
+	vertical-align:middle;
+	margin-left:3px;
+}  
+.pagination a:hover
+{  
+	color: white; 
+	background-color: #000066;
+	text-decoration: none;
+	border: 1px solid #cc66cc;
+	padding:1px 5px 1px 5px;
+	font-weight:bold;
+	vertical-align:middle;
+	margin-left:3px;
+    -webkit-border-radius: 4px;    /* for Safari */
+    -moz-border-radius: 4px;       /* for Firefox */
+    -khtml-border-radius: 4px;      /* for Linux */
+    border-radius: 4px
+}
+a.pagingCurrent
+{
+	color: white; 
+	background-color: #000066;
+}
+
+.menulink a
+{
+	text-align: center;
+	position:relative;
+	color: #000066;
+	background-color: white;
+	text-decoration: none;
+	border: 1px solid #000066;
+	padding:1px 5px 1px 5px;
+	font-weight:bold;
+	vertical-align:middle;
+	margin-left:5px;
+    -webkit-border-radius: 4px;    /* for Safari */
+    -moz-border-radius: 4px;       /* for Firefox */
+    -khtml-border-radius: 4px;      /* for Linux */
+    border-radius: 4px
+}
+
+.menulink a:hover
+{  
+	color: white; 
+	background-color: #000066;
+}

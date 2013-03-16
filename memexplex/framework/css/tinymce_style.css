@@ -1,0 +1,89 @@
+/*
+   File Name: eal_style.css
+   Created: 01/01/2000
+   Created By: Emil Moster, Ryan Somma
+   Description: Style sheet defining the appearance of the EAL application.
+
+   History: 07/04/2009 RAS Reworked for QMD and modernization.
+
+*/
+
+html,
+body {
+    background-color: #ffffff;
+    font-family: "Arial",sans-serif;
+    color: #000000;
+    font-weight: normal;
+    font-size: 10pt;
+    text-align: left;
+}
+
+p
+{
+	display:block;
+	margin-bottom:10px;
+}
+
+ol, ul
+{
+	padding-left: 20px;
+}
+
+ul
+{
+	padding-left: 15px;
+}
+
+/* BEGIN LINK PROPERTIES */
+
+a
+{
+    text-decoration:none;
+    white-space:nowrap;
+}
+
+a:link
+{
+    color:#000066;
+}
+
+a:visited
+{
+    color:#000066;
+}
+
+a:active
+{
+    color:#cc66cc;
+}
+
+a:hover
+{
+    color:#cc66cc;
+}
+
+a.NoLink
+{
+    text-decoration:none;
+}
+
+/* END LINK PROPERTIES */
+
+/* BEGIN MISCELLANEOUS PROPERTIES */
+
+img
+{
+    border:0px;
+}
+
+hr 
+{
+	width: 90%;
+	text-align: center;/*this will align it for IE*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* END MISCELLANEOUS PROPERTIES */
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<environments>
+    <environment name="Local">
+        <environmentDisplayName>LOCAL</environmentDisplayName>
+        <phpAddress>127.0.0.1:4001</phpAddress>
+        <phpAddress>localhost:4001</phpAddress>
+        <phpApplicationLogDirectory>/log/</phpApplicationLogDirectory>
+    </environment>
+    <environment name="Production">
+        <environmentDisplayName></environmentDisplayName>
+        <phpAddress>memexplex.com</phpAddress>
+        <phpAddress>mxplx.com</phpAddress>
+        <phpApplicationLogDirectory>/log/</phpApplicationLogDirectory>
+    </environment>
+</environments>

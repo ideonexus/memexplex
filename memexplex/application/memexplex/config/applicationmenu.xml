@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<menu>
+    <menuItem>
+        <label>Memes</label>
+        <link>MemeList/</link>
+        <icon>meme_blue.gif</icon>
+        <childMenuItem>
+            <pagecode>MemeList</pagecode>
+            <label>My Memes</label>
+            <link>MemeList/domain=curator</link>
+        </childMenuItem>
+        <childMenuItem>
+            <pagecode>MemeList</pagecode>
+            <label>Public Memes</label>
+            <link>MemeList/domain=omni</link>
+        </childMenuItem>
+        <childMenuItem>
+            <pagecode>Meme</pagecode>
+            <label>Add Meme</label>
+            <link>Meme/</link>
+        </childMenuItem>
+    </menuItem>
+    <menuItem>
+        <label>References</label>
+        <link>ReferenceList/</link>
+        <icon>reference_blue.gif</icon>
+        <childMenuItem>
+            <pagecode>ReferenceList</pagecode>
+            <label>My References</label>
+            <link>ReferenceList/domain=curator</link>
+        </childMenuItem>
+        <childMenuItem>
+            <pagecode>ReferenceList</pagecode>
+            <label>Public References</label>
+            <link>ReferenceList/domain=omni</link>
+        </childMenuItem>
+        <childMenuItem>
+            <pagecode>Reference</pagecode>
+            <label>Add Reference</label>
+            <link>Reference/</link>
+        </childMenuItem>
+    </menuItem>
+    <menuItem>
+        <label>Triples</label>
+        <link>TripleList/</link>
+        <icon>triple_blue.gif</icon>
+        <childMenuItem>
+        	<pagecode>TripleList</pagecode>
+            <label>My Triples</label>
+            <link>TripleList/domain=curator</link>
+        </childMenuItem>
+        <childMenuItem>
+        	<pagecode>TripleList</pagecode>
+            <label>Public Triples</label>
+            <link>TripleList/domain=omni</link>
+        </childMenuItem>
+        <childMenuItem>
+        	<pagecode>Triple</pagecode>
+            <label>Add Triple</label>
+            <link>Triple/</link>
+        </childMenuItem>
+    </menuItem>
+    <menuItem>
+        <label>Schemas</label>
+        <link>SchemaList/</link>
+        <icon>schema_blue.gif</icon>
+        <childMenuItem>
+        	<pagecode>SchemaList</pagecode>
+            <label>My Schemas</label>
+            <link>SchemaList/domain=curator</link>
+        </childMenuItem>
+        <childMenuItem>
+       		<pagecode>SchemaList</pagecode>
+            <label>Public Schemas</label>
+            <link>SchemaList/domain=omni</link>
+        </childMenuItem>
+        <childMenuItem>
+        	<pagecode>Schema</pagecode>
+            <label>Add Schema</label>
+            <link>Schema/</link>
+        </childMenuItem>
+    </menuItem>
+    <!--  menuItem>
+        <label>SIGs</label>
+        <link>SIGList/</link>
+        <childMenuItem>
+            <label>My SIGs</label>
+            <link>SIGList/mine</link>
+        </childMenuItem>
+        <childMenuItem>
+            <label>Browse SIGs</label>
+            <link>SIGList/</link>
+        </childMenuItem>
+        <childMenuItem>
+            <label>New SIG</label>
+            <link>SIG/</link>
+        </childMenuItem>
+        <childMenuItem>
+            <label>Semantic EXchange</label>
+            <link>SEX/</link>
+        </childMenuItem>
+    </menuItem-->
+    <menuItem>
+        <label>My Account</label>
+        <link>MyAccount/</link>
+        <system>LoggedIn</system>
+        <!--childMenuItem>
+            <label>Signal-To-Noise Ratio</label>
+            <link>SNR/</link>
+        </childMenuItem>
+        <childMenuItem>
+            <label>Display Name</label>
+            <link>DisplayName/</link>
+        </childMenuItem>
+        <childMenuItem>
+            <label>Email</label>
+            <link>Email/</link>
+        </childMenuItem-->
+        <childMenuItem>
+            <label>My Profile</label>
+            <link>CuratorProfile/</link>
+        </childMenuItem>
+        <childMenuItem>
+            <label>Change Password</label>
+            <link>ChangePassword/</link>
+        </childMenuItem>
+        <!--childMenuItem>
+            <label>Bookmark Tool</label>
+            <link>Bookmark/</link>
+        </childMenuItem-->
+    </menuItem>
+    <menuItem>
+        <label>Community Message</label>
+        <link>communityMessage.php?hidCommunityMessage=Toggle</link>
+        <system>COMMUNITY MESSAGE</system>
+    </menuItem>
+    <menuItem>
+        <label>Sign Up</label>
+        <link>SignUp/</link>
+    </menuItem>
+    <menuItem>
+        <label>Login</label>
+        <link>Login/</link>
+    </menuItem>
+    <menuItem>
+        <label>Logout</label>
+        <link>Logout/</link>
+    </menuItem>
+</menu>

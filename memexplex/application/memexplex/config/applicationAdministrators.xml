@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    List of Administrators for various applictions for access when the database goes down.
+-->
+<adminstrators>
+    <administrator>
+        <name>Ryan Somma</name>
+        <email>ryeguy123@yahoo.com</email>
+    </administrator>
+</adminstrators>

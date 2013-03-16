@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Triple</title>
+	<menu>none</menu>
+
+    <forms>
+        <form>
+            <id>reportFilter</id>
+            <formfield>
+                <label></label>
+                <type>HiddenId</type>
+                <id>id</id>
+            </formfield>
+        </form>
+        <form>
+            <id>frmEditTriple</id>
+            <formfield>
+                <type>ButtonDelete</type>
+                <id>btnSave</id>
+                <methods>
+                	<setForm>frmEditTriple</setForm>
+                    <setConfirmation>Triple</setConfirmation>
+                </methods>
+            </formfield>
+            <formfield>
+                <type>ButtonSave</type>
+                <id>btnSave</id>
+                <methods>
+                    <setOnClickJavaScript>FormValidation('frmEditTriple');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+        </form>
+		<TripleBlock>
+			<config>TripleBlock</config>
+		</TripleBlock>
+		<MemeBlock>
+			<config>MemeBlock</config>
+		</MemeBlock>
+    </forms>
+
+</root>

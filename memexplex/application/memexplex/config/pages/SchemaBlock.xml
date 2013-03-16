@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SchemaBlock>
+    <recordDataXpath>
+        SchemaList/Schema
+    </recordDataXpath>
+    <formfield>
+        <label>Disseminate</label>
+        <type>CheckboxDisseminate</type>
+        <id>disseminate</id>
+        <valueXpath>Published</valueXpath>
+        <span>
+        	<custom>style="float: right;"</custom>
+        </span>
+        <labelInline/>
+        <nobreak/>
+    </formfield>
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>datepublished</id>
+        <valueXpath>DatePublished</valueXpath>
+    </formfield>
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>schemaId</id>
+        <valueXpath>Id</valueXpath>
+    </formfield>
+    <formfield>
+        <label>Title</label>
+        <type>Text</type>
+        <id>schemaTitle</id>
+        <valueXpath>Title</valueXpath>
+        <methods>
+        	<setSize>75</setSize>
+        	<setMaxlength>250</setMaxlength>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>Description</label>
+        <type>TextAreaRich</type>
+        <id>schemaDescription</id>
+        <valueXpath>Description</valueXpath>
+        <methods>
+        	<setRows>10</setRows>
+        	<setCols>57</setCols>
+        </methods>
+    </formfield>
+    <formfield>
+        <label><![CDATA[Folksonomies (comma-separated) <a href="http://www.memexplex.com/Meme/id=213" target="_blank">?</a>]]></label>
+        <type>Taxonomy</type>
+        <id>schemaTaxonomies</id>
+        <valueXpath>TaxonomyList</valueXpath>
+        <methods>
+        	<setSize>75</setSize>
+        	<setMaxlength>250</setMaxlength>
+        </methods>
+    </formfield>
+</SchemaBlock>

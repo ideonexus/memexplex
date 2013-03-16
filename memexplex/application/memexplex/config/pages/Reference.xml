@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Reference</title>
+	<menu>none</menu>
+
+    <forms>
+        <form>
+            <id>reportFilter</id>
+            <formfield>
+                <label></label>
+                <type>HiddenId</type>
+                <id>id</id>
+            </formfield>
+        </form>
+        <form>
+            <id>frmEditReference</id>
+            <formfield>
+                <type>ButtonDelete</type>
+                <id>btnSave</id>
+                <methods>
+                	<setForm>frmEditReference</setForm>
+                    <setConfirmation>Reference</setConfirmation>
+                </methods>
+            </formfield>
+            <formfield>
+                <type>ButtonSave</type>
+                <id>btnSave</id>
+                <methods>
+                    <setOnClickJavaScript>FormValidation('frmEditReference');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+        </form>
+		<ReferenceTypeBlock>
+			<config>ReferenceTypeBlock</config>
+		</ReferenceTypeBlock>
+		<AuthorsTable>
+			<config>AuthorsTable</config>
+		</AuthorsTable>
+		<ReferenceBlock>
+			<config>ReferenceBlock</config>
+		</ReferenceBlock>
+        <MemeListTable>
+			<config>MemeListTable</config>
+        </MemeListTable>
+    </forms>
+
+</root>

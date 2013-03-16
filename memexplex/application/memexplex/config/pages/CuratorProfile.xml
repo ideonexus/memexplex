@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Curator Profile</title>
+	<menu>none</menu>
+
+    <forms>
+        <form>
+            <id>reportFilter</id>
+            <formfield>
+                <label></label>
+                <type>Hidden</type>
+                <id>id</id>
+            </formfield>
+        </form>
+        <form>
+            <id>frmCuratorProfile</id>
+            <formfield>
+                <type>ButtonSubmit</type>
+                <id>btnSave</id>
+                <methods>
+                    <setOnClickJavaScript>FormValidation('frmCuratorProfile');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+        </form>
+        <CuratorProfileBlock>
+		    <formfield>
+		        <label>Display Name</label>
+		        <type>Text</type>
+		        <id>displayname</id>
+		        <valueXpath>Curator/DisplayName</valueXpath>
+		        <methods>
+		        	<setSize>40</setSize>
+		        	<setMaxlength>256</setMaxlength>
+		        </methods>
+		    </formfield>
+		    <formfield>
+		        <label>Disseminate my MemexPlex objects by default.</label>
+		        <type>Checkbox</type>
+		        <id>disseminatebydefault</id>
+		        <valueXpath>Curator/PublishByDefault</valueXpath>
+		        <labelInline/>
+		        <nobreak/>
+		    </formfield>
+        </CuratorProfileBlock>
+    </forms>
+
+</root>

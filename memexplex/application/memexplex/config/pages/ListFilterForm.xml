@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<filter>
+	<formfield>
+	    <type>Search</type>
+	    <id>searchString</id>
+		<methods>
+			<setSize>65</setSize>
+			<setMaxlength>250</setMaxlength>
+			<setGetViceAjax>true</setGetViceAjax>
+		</methods>
+	</formfield>
+	<formfield>
+	    <type>Hidden</type>
+	    <id>mine</id>
+	</formfield>
+	<formfield>
+	    <label>Filter</label>
+	    <type>SelectFilter</type>
+	    <id>searchFilter</id>
+	    <selectValuesXpath>Filters/SearchFilter/option/value</selectValuesXpath>
+	    <selectDescriptionsXpath>Filters/SearchFilter/option/description</selectDescriptionsXpath>
+	    <valueXpath>FilterSelections/SearchFilter</valueXpath>
+	    <methods>
+	        <setFirstOptionText>Filter By</setFirstOptionText>
+			<setGetViceAjax>true</setGetViceAjax>
+	    </methods>
+	</formfield>
+	<formfield>
+	    <label>Sort</label>
+	    <type>SelectFilter</type>
+	    <id>sortFilter</id>
+	    <selectValuesXpath>Filters/SortFilter/option/value</selectValuesXpath>
+	    <selectDescriptionsXpath>Filters/SortFilter/option/description</selectDescriptionsXpath>
+	    <valueXpath>FilterSelections/SortFilter</valueXpath>
+	    <methods>
+	        <setFirstOptionText>Sort By</setFirstOptionText>
+			<setGetViceAjax>true</setGetViceAjax>
+	    </methods>
+	</formfield>
+	<formfield>
+	    <label>Pagination</label>
+	    <type>PagingNavigation</type>
+	    <id>pagingNavigation</id>
+        <totalRecordsXpath>Filters/PagingFilter/TotalRows</totalRecordsXpath>
+	    <methods>
+	        <setRange>6</setRange>
+	        <setRecordsPerPage>10</setRecordsPerPage>
+	    </methods>
+	</formfield>
+</filter>

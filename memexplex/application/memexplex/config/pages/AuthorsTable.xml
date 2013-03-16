@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<AuthorsTable>
+    <recordDataXpath>
+        ReferenceList/Reference/Authors/Author
+    </recordDataXpath>
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>authorId</id>
+        <valueXpath>Id</valueXpath>
+    </formfield>
+    <formfield>
+        <label>Last Name</label>
+        <type>Text</type>
+        <id>authorLastName</id>
+        <valueXpath>LastName</valueXpath>
+        <methods>
+        	<setSize>35</setSize>
+        	<setMaxlength>125</setMaxlength>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>First Name</label>
+        <type>Text</type>
+        <id>authorFirstName</id>
+        <valueXpath>FirstName</valueXpath>
+        <methods>
+        	<setSize>35</setSize>
+        	<setMaxlength>125</setMaxlength>
+        </methods>
+    </formfield>
+    <tablefield>
+        <type>ButtonMore</type>
+        <id>moreButton</id>
+        <methods>
+            <setTableId>AuthorsTableEdit</setTableId>
+            <setRowCountField>hidAuthorsTableEditRowCount</setRowCountField>
+            <setDefaultMoreJavaScript></setDefaultMoreJavaScript>
+        </methods>
+    </tablefield>
+    <tablefield>
+        <type>HiddenRowCount</type>
+        <id>hidAuthorsTableEditRowCount</id>
+    </tablefield>
+</AuthorsTable>

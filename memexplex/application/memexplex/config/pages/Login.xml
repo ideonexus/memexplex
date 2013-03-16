@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Login</title>
+	<menu>none</menu>
+	<security>none</security>
+
+    <forms>
+        <form>
+            <id>reportFilter</id>
+            <formfield>
+                <label></label>
+                <type>Hidden</type>
+                <id>id</id>
+            </formfield>
+        </form>
+        <form>
+            <id>frmLogin</id>
+            <formfield>
+                <type>ButtonSubmit</type>
+                <id>btnSave</id>
+                <methods>
+                    <setOnClickJavaScript>FormValidation('frmLogin');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+        </form>
+        <LoginBlock>
+		    <formfield>
+		        <label>Email</label>
+		        <type>Text</type>
+		        <id>email</id>
+		        <valueXpath></valueXpath>
+		        <methods>
+		        	<setSize>40</setSize>
+		        	<setMaxlength>256</setMaxlength>
+		        </methods>
+		    </formfield>
+		    <formfield>
+		        <label>Password</label>
+		        <type>Password</type>
+		        <id>password</id>
+		        <valueXpath></valueXpath>
+		        <methods>
+		        	<setSize>40</setSize>
+		        	<setMaxlength>40</setMaxlength>
+		        	<setFormAction>FormValidation('frmLogin');</setFormAction>
+		        </methods>
+		    </formfield>
+		    <formfield>
+		        <label>Cookie Me</label>
+		        <type>Checkbox</type>
+		        <id>cookie</id>
+		        <valueXpath></valueXpath>
+        		<labelInline/>
+		    </formfield>
+        </LoginBlock>
+    </forms>
+
+</root>

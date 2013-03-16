@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Browse References</title>
+    <header>none</header>
+	<menu>none</menu>
+    <applicationmenu>none</applicationmenu>
+
+    <forms>
+        <form>
+        	<config>ListReportForm</config>
+        </form>
+    	<filter>
+            <config>ListFilterForm</config>
+    	</filter>
+    	<ajaxCall>
+            <config>ListAjaxCallForm</config>
+    	</ajaxCall>
+        <ReferenceListTable>
+            <config>ReferenceListModalTable</config>
+        </ReferenceListTable>
+    </forms>
+
+</root>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Schema</title>
+    <header>none</header>
+    <security>none</security>
+    <menu>none</menu>
+    <applicationmenu>none</applicationmenu>
+    
+    <forms>
+        <form>
+            <id>reportFilter</id>
+            <formfield>
+                <label></label>
+                <type>Hidden</type>
+                <id>id</id>
+            </formfield>
+        </form>
+        <form>
+            <id>frmEditSchema</id>
+            <formfield>
+                <type>ButtonSave</type>
+                <id>btnSave</id>
+                <methods>
+                    <setOnClickJavaScript>FormValidation('frmEditSchema');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+		    <formfield>
+		        <label></label>
+		        <type>Hidden</type>
+		        <id>schemaid</id>
+		    </formfield>
+		    <formfield>
+		        <label></label>
+		        <type>Hidden</type>
+		        <id>parentreferenceid</id>
+		    </formfield>
+        </form>
+		<SchemaBlock>
+			<config>SchemaBlock</config>
+		</SchemaBlock>
+    </forms>
+
+</root>

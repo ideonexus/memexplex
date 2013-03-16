@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+    <title>Meme</title>
+	<menu>none</menu>
+
+    <forms>
+        <form>
+            <id>reportFilter</id>
+            <formfield>
+                <label></label>
+                <type>HiddenId</type>
+                <id>id</id>
+            </formfield>
+        </form>
+        <form>
+            <id>frmEditMeme</id>
+            <formfield>
+                <type>ButtonDelete</type>
+                <id>btnSave</id>
+                <methods>
+                	<setForm>frmEditMeme</setForm>
+                    <setConfirmation>Meme</setConfirmation>
+                </methods>
+            </formfield>
+            <formfield>
+                <type>ButtonSave</type>
+                <id>btnSave</id>
+                <methods>
+                    <setOnClickJavaScript>FormValidation('frmEditMeme');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+        </form>
+        <MemeBlock>
+			<config>MemeBlock</config>
+        </MemeBlock>
+		<ReferenceBlock>
+			<config>ReferenceBlock</config>
+		</ReferenceBlock>
+        <SchemaListTable>
+			<config>SchemaListTable</config>
+        </SchemaListTable>
+        <TripleListTable>
+			<config>TripleListTable</config>
+        </TripleListTable>
+    </forms>
+
+</root>

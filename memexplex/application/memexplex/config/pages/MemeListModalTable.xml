@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<MemeListTable>
+    <recordDataXpath>
+        MemeList/Meme
+    </recordDataXpath>
+    <formfield>
+        <label>Title</label>
+        <type>HrefGetLinkTruncated</type>
+        <id>title</id>
+        <valueXpath>Title</valueXpath>
+        <variablesXpaths>
+        	<uid>Curator/Id</uid>
+        	<id>Id</id>
+        	<title>Title</title>
+        </variablesXpaths>
+        <methods>
+        	<setDestination>MemeModal/</setDestination>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>Summary</label>
+        <type>DisplayOnlyTruncated</type>
+        <id>summary</id>
+        <valueXpath>Text</valueXpath>
+        <methods>
+        	<setTruncateLength>270</setTruncateLength>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>Folksonomies</label>
+        <type>Taxonomy</type>
+        <id>taxonomy</id>
+        <valueXpath>TaxonomyList</valueXpath>
+        <methods>
+        	<setDestination>MemeListModal/</setDestination>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>Expand</label>
+        <type>Text</type>
+        <!--  See MemeHtml->MemeList for use -->
+    </formfield>
+    <formfield>
+        <label>Quote</label>
+        <type>Text</type>
+        <id>summary</id>
+        <valueXpath>Quote</valueXpath>
+    </formfield>
+</MemeListTable>

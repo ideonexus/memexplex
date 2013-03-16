@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    errorLevel:
+        1. PhpParseError: Unrecoverable to PHP, Application Crashes.
+        2. PHPError: Warnings, Notices, etc thrown by PHP. Are not exceptions.
+            Caught and handled by ErrorHandler.php
+        3. FatalException: Unrecoverable Error, Application Ejects user.
+        4. RecoverableException: Error Occurred in System, Log It and Handle
+            Gracefully on front end.
+        5. NoticeException: Not a True Error, Used for Metrics Gathering.
+        6. UserNoticeException: User-Input Error or Successful Transaction,
+            Usually Not Logged. Displayed to the User in Messages portion of screen.
+
+    sendEmail: (true/false) Send an e-mail to the application administrators.
+
+    logImmediately: (true/false) Whether to write the error to the log file
+        immediately. Not recommended except in cases where an exception is
+        killing the system without making an entry in the log file and exceptions
+        leading up to it are needed for debugging.
+
+    logImmediatelyFile: (optional) name of file in "../log/" directory where the
+        error should be recorded, default is today's date "error" logfile.
+
+    collectError: (true/false) collect the exception to the ErrorCollection, where it
+        will be logged at the end of the script.
+
+    collectErrorFile: (optional) name of file in "../log/" directory where the
+        error should be recorded, default is today's date "error" logfile.
+
+    fatalError: (true/false) whether the exception should boot the user from the
+        application.
+
+    fatalErrorRedirect: (optional) location of where to boot the user to. Defaults
+        to "error.php".
+-->
+<exceptions>
+    <exception>
+        <exceptionClass>GeneralException</exceptionClass>
+        <collectError>true</collectError>
+    </exception>
+    <exception>
+        <exceptionClass>ControlException</exceptionClass>
+        <collectError>true</collectError>
+        <extension>
+            <exceptionClass>ControlExceptionDataValidation</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionUserInput</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionClassNotFound</exceptionClass>
+            <collectError>true</collectError>
+            <fatalError>true</fatalError>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionConfigurationError</exceptionClass>
+            <collectError>false</collectError>
+            <fatalError>true</fatalError>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionExceptionNotFound</exceptionClass>
+            <collectError>true</collectError>
+            <fatalError>true</fatalError>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionMissingParameter</exceptionClass>
+            <collectError>true</collectError>
+            <fatalError>true</fatalError>
+            <fatalErrorRedirect>SessionTimeout/</fatalErrorRedirect>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionNoPrivileges</exceptionClass>
+            <collectError>false</collectError>
+            <fatalError>true</fatalError>
+            <fatalErrorRedirect>Security/</fatalErrorRedirect>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionApplicationNotFound</exceptionClass>
+            <collectError>false</collectError>
+            <fatalError>true</fatalError>
+            <fatalErrorRedirect>404/</fatalErrorRedirect>
+        </extension>
+        <extension>
+            <exceptionClass>ControlExceptionPageNotFound</exceptionClass>
+            <collectError>false</collectError>
+            <fatalError>true</fatalError>
+            <fatalErrorRedirect>404/</fatalErrorRedirect>
+        </extension>
+    </exception>
+    <exception>
+        <exceptionClass>BusinessException</exceptionClass>
+        <collectError>true</collectError>
+        <extension>
+            <exceptionClass>BusinessExceptionInvalidArgument</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>BusinessExceptionInvalidDelta</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>BusinessExceptionPageObject</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>BusinessExceptionRequiredPageObject</exceptionClass>
+            <errorLevel>FatalException</errorLevel>
+            <collectError>true</collectError>
+            <fatalError>true</fatalError>
+        </extension>
+    </exception>
+    <exception>
+        <exceptionClass>PersistenceException</exceptionClass>
+        <collectError>false</collectError>
+        <extension>
+            <!--Fatal Configuration File Error-->
+            <exceptionClass>PersistenceExceptionConfigurationError</exceptionClass>
+            <errorLevel>FatalException</errorLevel>
+            <collectError>true</collectError>
+            <fatalError>true</fatalError>
+        </extension>
+        <extension>
+            <!--Provider Exception-->
+            <exceptionClass>PersistenceExceptionValidationError</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <!--Duplicate Entry-->
+            <exceptionClass>PersistenceExceptionDuplicateEntry</exceptionClass>
+            <collectError>false</collectError>
+        </extension>
+        <extension>
+            <!--Provider Exception-->
+            <exceptionClass>PersistenceExceptionProvider</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+    </exception>
+    <exception>
+        <exceptionClass>PresentationException</exceptionClass>
+        <collectError>true</collectError>
+        <extension>
+            <exceptionClass>PresentationExceptionConfigurationError</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>PresentationExceptionHtml</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>PresentationExceptionConfigurationError</exceptionClass>
+            <errorLevel>FatalException</errorLevel>
+            <collectError>true</collectError>
+            <fatalError>true</fatalError>
+        </extension>
+    </exception>
+    <exception>
+        <exceptionClass>SystemException</exceptionClass>
+        <collectError>true</collectError>
+        <extension>
+            <exceptionClass>SystemExceptionConfiguration</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+        <extension>
+            <exceptionClass>SystemExceptionPHPError</exceptionClass>
+            <collectError>true</collectError>
+        </extension>
+    </exception>
+</exceptions>

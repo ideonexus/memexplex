@@ -1,0 +1,28 @@
+
+Installation Notes:
+
+----- QuickStart ------
+
+The easiest thing to do is to run mxplx using the server2go bundle, which should *just work* out of the box, but to configure mxplx for other environments, see below.
+
+If Running off the 4MB database with 2500 memes:
+Login: idea@mxplx.com
+Password: password
+
+----- Customized Start -----
+
+/application/memexplex/classes/persistence/MySqlConfig.php
+Configures access to the MySQL database. Replace each of the following lines with your own DB access configuration:
+//database server
+define('DB_SERVER', "localhost");
+//database login name
+define('DB_USER', "DBUSER_HERE");
+//database login password
+define('DB_PASS', "DBPASSWORD_HERE");
+//database name
+define('DB_DATABASE', "memexplex_db");
+
+/framework/config/environments.xml
+Defines the environments mxplx will run in. The "localhost:4001" is for running locally, the production is what I use to run the site on mxplx.com. You can define more than one address in an environment. If you want to run mxplx locally on a different localhost address, change the local values. If you want to run mxplx on a web host with a domain name, modify the production enironment addresses.
+
+

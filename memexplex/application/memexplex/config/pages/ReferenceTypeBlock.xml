@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<ReferenceTypeBlock>
+    <recordDataXpath>
+        ReferenceList/Reference
+    </recordDataXpath>
+    <formfield>
+        <label>Disseminate</label>
+        <type>CheckboxDisseminate</type>
+        <id>disseminate</id>
+        <valueXpath>Published</valueXpath>
+        <span>
+        	<custom>style="float: right;"</custom>
+        </span>
+        <labelInline/>
+        <nobreak/>
+    </formfield>
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>datepublished</id>
+        <valueXpath>DatePublished</valueXpath>
+    </formfield>
+    <formfield>
+        <label></label>
+        <type>Hidden</type>
+        <id>referenceId</id>
+        <valueXpath>Id</valueXpath>
+    </formfield>
+    <formfield>
+        <label>Reference Super Type</label>
+        <type>Select</type>
+        <id>referenceSuperType</id>
+        <valueXpath>ReferenceSuperTypeId</valueXpath>
+        <valueDisplayXpath>
+        	ReferenceSuperTypeList
+        		/ReferenceSuperType
+				[
+                    ReferenceSuperTypeId='%VALUE%'
+                ]
+       				/ReferenceSuperTypeDescription
+        </valueDisplayXpath>
+        <selectValuesXpath>ReferenceSuperTypeList/ReferenceSuperType/ReferenceSuperTypeId</selectValuesXpath>
+        <selectDescriptionsXpath>ReferenceSuperTypeList/ReferenceSuperType/ReferenceSuperTypeDescription</selectDescriptionsXpath>
+        <methods>
+            <setChildSelect>referenceType</setChildSelect>
+        </methods>
+    </formfield>
+    <formfield>
+        <label></label>
+        <type>ImageGoogleBooks</type>
+        <id>largeImageDisplay</id>
+        <valueXpath>LargeImageUrl</valueXpath>
+        <methods>
+        	<setHeight>184</setHeight>
+        	<setWidth>120</setWidth>
+        </methods>
+        <labelInline/>
+        <nobreak/>
+    </formfield>
+    <formfield>
+        <label>Reference Type</label>
+        <type>Select</type>
+        <id>referenceType</id>
+        <valueXpath>ReferenceTypeId</valueXpath>
+        <valueDisplayXpath>
+        	ReferenceTypeList
+        		/ReferenceType
+				[
+                          ReferenceTypeId='%VALUE%'
+                      ]
+        			/ReferenceTypeDescription
+        </valueDisplayXpath>
+        <selectValuesXpath>ReferenceTypeList/ReferenceType/ReferenceTypeId</selectValuesXpath>
+        <selectDescriptionsXpath>ReferenceTypeList/ReferenceType/ReferenceTypeDescription</selectDescriptionsXpath>
+        <selectClassXpath>ReferenceTypeList/ReferenceType/ReferenceSuperTypeId</selectClassXpath>
+    </formfield>
+    <formfield>
+        <label>Date Retrieved</label>
+        <type>Date</type>
+        <id>referenceDateRetrieved</id>
+        <valueXpath>DateRetrieved</valueXpath>
+    </formfield>
+    <formfield>
+        <label>Publication Date</label>
+        <type>Text</type>
+        <id>referenceDate</id>
+        <valueXpath>ReferenceDate</valueXpath>
+        <methods>
+        	<setSize>15</setSize>
+        	<setMaxlength>20</setMaxlength>
+        </methods>
+    </formfield>
+</ReferenceTypeBlock>
