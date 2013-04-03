@@ -17,14 +17,15 @@ Inspired by Vannevar Bush's memex, **mxplx** is a tool I wrote for organizing an
 
 ![Alt text](http://www.memexplex.org/wp-content/uploads/2010/11/20110101memexplex_db.png)
 
-**For a deeper explanation:**
+<http://mxplx.com>
+--------------
+
+This is the copy I use personally. I've disabled the sign up for new users, but the **memexplex_db.zip** file in this project contains over 2,500 of the memes you will see on this site.
 
 <http://memexplex.org>
+--------------
 
-**To browse a version for my personal use:**
-
-<http://mxplx.com>
-
+This is the brochure introduction to the application. For a deeper explanation of what this is about and my original intentions, go here.
 
 Getting Started
 --------------
