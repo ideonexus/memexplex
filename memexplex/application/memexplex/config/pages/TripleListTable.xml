@@ -23,7 +23,7 @@
     </formfield>
     <formfield>
         <label>Title</label>
-        <type>HrefGetLink</type>
+        <type>HrefGetLinkTruncated</type>
         <id>title</id>
         <valueXpath>Title</valueXpath>
         <tableCellProperties>
