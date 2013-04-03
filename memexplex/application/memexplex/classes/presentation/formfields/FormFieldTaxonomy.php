@@ -64,18 +64,25 @@ implements FormFieldInterface
     public function setDefaultValue()
     {
         $separator = "";
+        $taxonomyCount = 0;
         $this->taxonomyString = "";
-        $this->taxonomyLinks = "";
+        $this->taxonomyLinks = '<span class="menulink">';
         foreach ($this->formData->TaxonomyList->Taxonomy as $taxonomy)
         {
+        		$taxonomyCount++;
+        		$lineBreak = "";
+        		if ($taxonomyCount == 6)
+        		{
+        				$lineBreak = "<br/>";
+        		}
             $this->taxonomyString .= $separator . $taxonomy;
-            $this->taxonomyLinks .= $separator . '<a href="'
+            $this->taxonomyLinks .= '<a href="'
             . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
             . $this->destination
             . 'taxonomy=' . $taxonomy
             . '">'
             . $taxonomy
-            . '</a>';
+            . '</a>' . $lineBreak;
             $separator = ",";
         }
         if ($this->taxonomyLinks == "")
@@ -84,6 +91,7 @@ implements FormFieldInterface
         }
         else
         {
+        	  $this->taxonomyLinks .= '</span>';
             $this->defaultValue = $this->taxonomyLinks;
         }
     }
