@@ -18,9 +18,9 @@ implements FormFieldInterface
      */
     public function setDefaultValue($defaultValue = '')
     {
-        if (strlen($defaultValue) > 70)
+        if (strlen($defaultValue) > 60)
         {
-            $defaultValue = htmlspecialchars(substr($defaultValue,0,67)).'...';
+            $defaultValue = htmlspecialchars(substr($defaultValue,0,57)).'...';
         }
         else
         {
