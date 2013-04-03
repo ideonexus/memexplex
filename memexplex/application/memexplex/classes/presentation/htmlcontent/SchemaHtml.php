@@ -164,8 +164,8 @@ class SchemaHtml
                         break;
                     case "Title":
                         $listSource .= 
-                            '<img src="'.ROOT_FOLDER.'framework/images/schema.gif" width="13" height="13" border="0"/>' 
-                        	."&nbsp;<b>".$htmlFormField->getSource(true)."</b><br/>";
+                            '<h2><img src="'.ROOT_FOLDER.'framework/images/schema.gif" width="13" height="13" border="0"/>' 
+                        	."&nbsp;".$htmlFormField->getSource(true)."</h2>";
                         break;
                     case "Description":
                         $listSource .= $htmlFormField->getSource(true);

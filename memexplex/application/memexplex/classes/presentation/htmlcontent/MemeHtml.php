@@ -193,8 +193,8 @@ class MemeHtml
                         break;
                     case "Title":
                         $listSource .=
-                            '<a name="meme'.$rowdata->Id.'" id="meme'.$rowdata->Id.'"></a><img src="'.ROOT_FOLDER.'framework/images/meme.gif" width="13" height="13" border="0"/>' 
-                        	."&nbsp;<b>".$htmlFormField->getSource(true)."</b>".$removeLink."<br/>";
+                            '<h2><a name="meme'.$rowdata->Id.'" id="meme'.$rowdata->Id.'"></a><img src="'.ROOT_FOLDER.'framework/images/meme.gif" width="13" height="13" border="0"/>' 
+                        	."&nbsp;".$htmlFormField->getSource(true)."</h2>".$removeLink;
                         break;
                     case "Summary":
                         $listSource .= $htmlFormField->getSource(true);

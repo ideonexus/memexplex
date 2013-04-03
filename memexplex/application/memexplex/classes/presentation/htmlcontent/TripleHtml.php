@@ -181,8 +181,8 @@ class TripleHtml
                         break;
                     case "Title":
                         $listSource .= 
-                            '<img src="'.ROOT_FOLDER.'framework/images/triple.gif" width="15" height="13" border="0"/>' 
-                        	."&nbsp;<b>".$htmlFormField->getSource(true)."</b><br/>";
+                            '<h2><img src="'.ROOT_FOLDER.'framework/images/triple.gif" width="15" height="13" border="0"/>' 
+                        	."&nbsp;".$htmlFormField->getSource(true)."</h2>";
                         break;
                     case "Description":
                         $listSource .= "<br/>".$htmlFormField->getSource(true);
