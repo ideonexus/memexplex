@@ -1,7 +1,7 @@
-MemexPlex, An Online Citation/Meme Management Tool
-==============
-
 ![Alt text](http://mxplx.com/framework/images/memexplexlogo.jpg)
+
+An Online Citation/Meme Management Tool
+==============
 
 Summary
 --------------
@@ -19,15 +19,15 @@ Inspired by Vannevar Bush's memex, **mxplx** is a tool I wrote for organizing an
 
 **For a deeper explanation:**
 
-http://memexplex.org
+<http://memexplex.org>
 
 **To browse a version for my personal use:**
 
-http://mxplx.com
+<http://mxplx.com>
 
 
 Getting Started
 --------------
 
-- For quick installation, follow instructions in the setup.txt.
-- For db diagrams and an explanation of the framework, look in the documentation directory.
+- For quick installation, follow instructions in the **setup.txt**.
+- For db diagrams and an explanation of the framework, look in the **documentation** directory.
