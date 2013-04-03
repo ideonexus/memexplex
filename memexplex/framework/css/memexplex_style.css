@@ -558,6 +558,7 @@ a.pagingCurrent
 	padding:1px 5px 1px 5px;
 	font-weight:bold;
 	vertical-align:middle;
+	line-height:25px;
 	margin-left:5px;
     -webkit-border-radius: 4px;    /* for Safari */
     -moz-border-radius: 4px;       /* for Firefox */
