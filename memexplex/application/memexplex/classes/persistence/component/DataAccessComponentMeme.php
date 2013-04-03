@@ -58,6 +58,37 @@ INNER JOIN curator u ON m.curator_id = u.id
     protected $standardorderby = "date_published DESC,date DESC,title";
     
     /**
+     * Stop Words. Because I like to work harder, not smarter.
+     * Obviously.
+     *
+     * @var string
+     */
+    protected $stopWords = array("a", "about", "above", "above", "across", "after", "afterwards", "again", "against", "all", "almost", "alone", "along", "already", "also","although","always","am","among", "amongst", "amoungst", "amount",  "an", "and", "another", "any","anyhow","anyone","anything","anyway", "anywhere", "are", "around", "as",  "at"
+	, "back","be","became", "because","become","becomes", "becoming", "been", "before", "beforehand", "behind", "being", "below", "beside", "besides", "between", "beyond", "bill", "both", "bottom","but", "by"
+	, "call", "can", "cannot", "cant", "co", "con", "could", "couldnt", "cry"
+	, "de", "describe", "detail", "do", "done", "down", "due", "during"
+	, "each", "eg", "eight", "either", "eleven","else", "elsewhere", "empty", "enough", "etc", "even", "ever", "every", "everyone", "everything", "everywhere", "except"
+	, "few", "fifteen", "fify", "fill", "find", "fire", "first", "five", "for", "former", "formerly", "forty", "found", "four", "from", "front", "full", "further"
+	, "get", "give", "go"
+	, "had", "has", "hasnt", "have", "he", "hence", "her", "here", "hereafter", "hereby", "herein", "hereupon", "hers", "herself", "him", "himself", "his", "how", "however", "hundred"
+	, "ie", "if", "in", "inc", "indeed", "interest", "into", "is", "it", "its", "itself"
+	, "keep"
+	, "last", "latter", "latterly", "least", "less", "ltd"
+	, "made", "many", "may", "me", "meanwhile", "might", "mill", "mine", "more", "moreover", "most", "mostly", "move", "much", "must", "my", "myself"
+	, "name", "namely", "neither", "never", "nevertheless", "next", "nine", "no", "nobody", "none", "noone", "nor", "not", "nothing", "now", "nowhere"
+	, "of", "off", "often", "on", "once", "one", "only", "onto", "or", "other", "others", "otherwise", "our", "ours", "ourselves", "out", "over", "own"
+	,"part", "per", "perhaps", "please", "put"
+	, "rather", "re"
+	, "same", "see", "seem", "seemed", "seeming", "seems", "serious", "several", "she", "should", "show", "side", "since", "sincere", "six", "sixty", "so", "some", "somehow", "someone", "something", "sometime", "sometimes", "somewhere", "still", "such", "system"
+	, "take", "ten", "than", "that", "the", "their", "them", "themselves", "then", "thence", "there", "thereafter", "thereby", "therefore", "therein", "thereupon", "these", "they", "thickv", "thin", "third", "this", "those", "though", "three", "through", "throughout", "thru", "thus", "to", "together", "too", "top", "toward", "towards", "twelve", "twenty", "two"
+	, "un", "under", "until", "up", "upon", "us"
+	, "very", "via"
+	, "was", "we", "well", "were", "what", "whatever", "when", "whence", "whenever", "where", "whereafter", "whereas", "whereby", "wherein", "whereupon", "wherever", "whether", "which", "while", "whither", "who", "whoever", "whole", "whom", "whose", "why", "will", "with", "within", "without", "would"
+	, "yet", "you", "your", "yours", "yourself", "yourselves"
+	, "the");
+   
+    
+    /**
      * This method takes a result set from a squirrelly
      * query and builds a MemeList object populated with
      * lots of baby-memes. Like building a family... a
@@ -324,7 +355,10 @@ $limitSql
                     ";
 */
                     $sql = "
-SELECT SQL_CALC_FOUND_ROWS
+SELECT SQL_CALC_FOUND_ROWS DISTINCT 
+	id ,title ,text ,quote ,published ,date_published ,date ,curator_id ,curator_display_name ,publish_by_default ,curator_level_id 
+FROM ( 
+SELECT
     $this->standardsqlcols
     ,1 AS relevance
 FROM
@@ -339,12 +373,30 @@ UNION
     FROM
         $this->standardsqlfrom
     WHERE
-        m.title LIKE '%$searchString%'
+        m.title LIKE '$searchString%'
         $sqlAnd
 UNION
     SELECT
         $this->standardsqlcols
         ,3 AS relevance
+    FROM
+        $this->standardsqlfrom
+    WHERE
+        m.title LIKE '% $searchString %'
+        $sqlAnd
+UNION
+    SELECT
+        $this->standardsqlcols
+        ,4 AS relevance
+    FROM
+        $this->standardsqlfrom
+    WHERE
+        m.title LIKE '%$searchString%'
+        $sqlAnd
+UNION
+    SELECT
+        $this->standardsqlcols
+        ,5 AS relevance
     FROM
         $this->standardsqlfrom
         INNER JOIN meme_taxonomy mt ON
@@ -357,7 +409,7 @@ UNION
 UNION
     SELECT
         $this->standardsqlcols
-        ,4 AS relevance
+        ,6 AS relevance
     FROM
         $this->standardsqlfrom
     WHERE
@@ -370,7 +422,8 @@ UNION
                     $firstLoop = true;
                     foreach ($searchTermList AS $searchTerm)
                     {
-                        if (trim($searchTerm) != '')
+                        if (trim($searchTerm) != ''
+                        	&& !in_array(strtolower(trim($searchTerm)),$this->stopWords))
                         {
                             if ($firstLoop)
                             {
@@ -378,7 +431,7 @@ UNION
 UNION
     SELECT
         $this->standardsqlcols
-        ,5 AS relevance
+        ,7 AS relevance
     FROM
         $this->standardsqlfrom
         INNER JOIN meme_taxonomy mt ON
@@ -411,7 +464,7 @@ UNION
                     }
                     $sql .= "
 ORDER BY relevance,$orderby
-$limitSql;";
+) AS result $limitSql;";
             }
             else
             {
