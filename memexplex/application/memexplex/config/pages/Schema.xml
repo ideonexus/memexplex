@@ -2,6 +2,9 @@
 <root>
     <title>Schema</title>
 	<menu>none</menu>
+    <javascript>
+    	<script>Slide</script>
+    </javascript>
 
     <forms>
         <form>
