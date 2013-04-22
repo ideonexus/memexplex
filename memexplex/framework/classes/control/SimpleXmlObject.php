@@ -4,7 +4,6 @@
  * @subpackage Control
  */
 class SimpleXmlObject extends SimpleXMLElement
-implements Serializable
 {
 
     /**
