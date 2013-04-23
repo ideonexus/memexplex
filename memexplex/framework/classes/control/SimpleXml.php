@@ -28,7 +28,7 @@ class SimpleXml
         if ($xPath != '')
         {
             $tempArray = $simpleXmlObject->xpath($xPath);
-            if ($tempArray)
+            if ((bool)$tempArray)
             {
                 return $tempArray[$index];
             }

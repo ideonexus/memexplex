@@ -82,6 +82,6 @@ implements HtmlContentInterface
                 // OVERIDE AJAX CONTENT TARGET
                 ."setTimeout('setAjaxContentTarget(\'triplelist\',\'loadingDisplay\')',500);"
             . '});'
-            . '</script>'';
+            . '</script>';
     }
 }
