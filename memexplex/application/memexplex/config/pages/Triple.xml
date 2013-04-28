@@ -15,7 +15,7 @@
         <form>
             <id>frmEditTriple</id>
             <formfield>
-                <type>ButtonDelete</type>
+                <type>ConditionalButtonDelete</type>
                 <id>btnSave</id>
                 <methods>
                 	<setForm>frmEditTriple</setForm>

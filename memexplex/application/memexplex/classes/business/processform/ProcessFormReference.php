@@ -59,13 +59,18 @@ implements ProcessFormInterface
 
         try
         {
+        	  if (trim($this->formValuesArray["referenceTitle"]) == "")
+        	  {
+        	  	  ErrorCollection::addUserErrorMessage("referenceTitle", "Title is required.");
+        	  }
+        	  
             $authorList = new AuthorList;
             for ($i=0;$i<($this->formValuesArray['hidAuthorsTableEditRowCount']+1);$i++)
             {
                 $authorList[] = new Author(
                     $this->formValuesArray['authorId'.$i]
-                    ,$this->formValuesArray['authorFirstName'.$i]
-                    ,$this->formValuesArray['authorLastName'.$i]
+                    ,trim($this->formValuesArray['authorFirstName'.$i])
+                    ,trim($this->formValuesArray['authorLastName'.$i])
                 );
             }
             
@@ -92,7 +97,7 @@ implements ProcessFormInterface
                     new Reference
                     (
                         $this->formValuesArray["referenceId"]
-                        ,$this->formValuesArray["referenceTitle"]
+                        ,trim($this->formValuesArray["referenceTitle"])
                         ,CuratorSession::getCuratorFromSession()
                         ,($this->formValuesArray["disseminate"] == 'Y') ? 1 : 0 //$published
                         ,$datePublished //$datePublished

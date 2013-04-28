@@ -15,7 +15,7 @@
         <form>
             <id>frmEditMeme</id>
             <formfield>
-                <type>ButtonDelete</type>
+                <type>ConditionalButtonDelete</type>
                 <id>btnSave</id>
                 <methods>
                 	<setForm>frmEditMeme</setForm>

@@ -59,6 +59,11 @@ implements ProcessFormInterface
 
         try
         {
+        	  if (trim($this->formValuesArray["schemaTitle"]) == "")
+        	  {
+        	  	  ErrorCollection::addUserErrorMessage("schemaTitle", "Title is required.");
+        	  }
+        	  
             $taxonomyList = new TaxonomyList;
             foreach (explode(",",$this->formValuesArray["schemaTaxonomies"]) as $taxonomy)
             {
@@ -85,7 +90,7 @@ implements ProcessFormInterface
                     new Schema
                     (
                         $this->formValuesArray["schemaId"]
-                        ,$this->formValuesArray["schemaTitle"]
+                        ,trim($this->formValuesArray["schemaTitle"])
                         ,CuratorSession::getCuratorFromSession()
                         ,($this->formValuesArray["disseminate"] == 'Y') ? 1 : 0 //$published     = null
                         ,$datePublished //$datePublished = null

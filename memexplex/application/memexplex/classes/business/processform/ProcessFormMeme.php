@@ -56,6 +56,12 @@ implements ProcessFormInterface
 
         try
         {
+        	
+        	  if (trim($this->formValuesArray["memeTitle"]) == "")
+        	  {
+        	  	  ErrorCollection::addUserErrorMessage("memeTitle", "Title is required.");
+        	  }
+        	  
             $taxonomyList = new TaxonomyList;
             foreach (explode(",",$this->formValuesArray["memeTaxonomies"]) as $taxonomy)
             {
@@ -83,7 +89,7 @@ implements ProcessFormInterface
                     new Meme
                     (
                         $this->formValuesArray["id"]
-                    	,$this->formValuesArray["memeTitle"]
+                    	  ,trim($this->formValuesArray["memeTitle"])
                         ,CuratorSession::getCuratorFromSession()
                         ,($this->formValuesArray["disseminate"] == 'Y') ? 1 : 0
                         ,$datePublished                 //$datePublished

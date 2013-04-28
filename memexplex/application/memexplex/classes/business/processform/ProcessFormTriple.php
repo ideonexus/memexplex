@@ -59,6 +59,7 @@ implements ProcessFormInterface
 
         try
         {
+
             $taxonomyList = new TaxonomyList;
             foreach (explode(",",$this->formValuesArray["tripleTaxonomies"]) as $taxonomy)
             {
@@ -68,7 +69,7 @@ implements ProcessFormInterface
             $purifier = HtmlValidation::getHtmlPurifier();
             $tripleDescription = $purifier->purify($this->formValuesArray["tripleDescription"]);
             
-            if ($this->formValuesArray["tripleTitle"] == "")
+            if (trim($this->formValuesArray["tripleTitle"]) == "")
             {
                 ErrorCollection::addUserErrorMessage(
                     "tripleTitle"
@@ -113,7 +114,7 @@ implements ProcessFormInterface
                     new Triple
                     (
                         $this->formValuesArray["tripleId"]
-                        ,$this->formValuesArray["tripleTitle"]
+                        ,trim($this->formValuesArray["tripleTitle"])
                         ,CuratorSession::getCuratorFromSession()
                         ,($this->formValuesArray["disseminate"] == 'Y') ? 1 : 0 //$published     = null
                         ,$datePublished //$datePublished = null
