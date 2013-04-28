@@ -92,13 +92,32 @@ WHERE
 GROUP BY
 	schema_id;
 ";
-
             $trs = $db->fetch_all_array($sql);
             foreach ($trs AS $trow)
             {
 	            $memeCount = $trow['meme_count'];
             }
-            
+
+            $schemaCount = 0;
+            $sql = "
+SELECT
+    s.id               AS schema_id
+	,COUNT(sm.child_id) AS schema_count
+FROM
+    schema_map s
+	LEFT JOIN schema_parent_child sm ON s.id = sm.parent_id
+WHERE
+	s.id = $id
+GROUP BY
+	schema_id;
+";
+
+            $trs = $db->fetch_all_array($sql);
+            foreach ($trs AS $trow)
+            {
+	            $schemaCount = $trow['schema_count'];
+            }
+
             if (!$schemaList[$id])
             {
                 $schemaList[$id] = new Schema
@@ -126,6 +145,7 @@ GROUP BY
                     ,$memeList
                     ,$childSchemaList
                     ,$memeCount
+                    ,$schemaCount
                 );
             }
         }

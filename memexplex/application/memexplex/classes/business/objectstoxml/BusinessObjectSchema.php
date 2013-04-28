@@ -30,6 +30,7 @@ class BusinessObjectSchema
         $xml->Published     = $schema->getPublished();
         $xml->DatePublished = $schema->getDatePublished();
         $xml->MemeCount     = $schema->getMemeCount();
+        $xml->SchemaCount   = $schema->getSchemaCount();
         
         if ($schema->getCurator())
         {

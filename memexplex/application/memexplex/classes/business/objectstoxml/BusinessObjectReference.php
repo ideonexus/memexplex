@@ -28,10 +28,10 @@ class BusinessObjectReference
         $xml = new SimpleXmlObject('<Reference/>');
 
         $xml->Id                            = $reference->getId();
-    	$xml->ReferenceSuperTypeId          = $referenceSuperType->getId();
-    	$xml->ReferenceSuperTypeDescription = $referenceSuperType->getDescription();
-    	$xml->ReferenceTypeId               = $referenceType->getId();
-    	$xml->ReferenceTypeDescription      = $referenceType->getDescription();
+	    	$xml->ReferenceSuperTypeId          = $referenceSuperType->getId();
+	    	$xml->ReferenceSuperTypeDescription = $referenceSuperType->getDescription();
+	    	$xml->ReferenceTypeId               = $referenceType->getId();
+	    	$xml->ReferenceTypeDescription      = $referenceType->getDescription();
         $xml->ReferenceDate                 = $reference->getReferenceDate();
         $xml->Title                         = $reference->getTitle();
         $xml->PublicationLocation           = $reference->getPublicationLocation();
@@ -50,6 +50,7 @@ class BusinessObjectReference
         $xml->Published                     = $reference->getPublished();
         $xml->DatePublished                 = $reference->getDatePublished();
         $xml->MemeCount                     = $reference->getMemeCount();
+        $xml->ReferenceCount                = $reference->getReferenceCount();
 
         if ($reference->getCurator())
         {

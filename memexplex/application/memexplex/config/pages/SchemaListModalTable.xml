@@ -51,4 +51,22 @@
         	<setDestination>SchemaListModal/</setDestination>
         </methods>
     </formfield>
+    <formfield>
+        <label>SchemaCount</label>
+        <type>MemexPlexObjectCount</type>
+        <id></id>
+        <valueXpath>SchemaCount</valueXpath>
+        <methods>
+            <setObjectType>schema</setObjectType>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>MemeCount</label>
+        <type>MemexPlexObjectCount</type>
+        <id></id>
+        <valueXpath>MemeCount</valueXpath>
+        <methods>
+            <setObjectType>meme</setObjectType>
+        </methods>
+    </formfield>
 </SchemaListTable>

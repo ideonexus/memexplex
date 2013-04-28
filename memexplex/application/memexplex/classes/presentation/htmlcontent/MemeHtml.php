@@ -159,6 +159,8 @@ class MemeHtml
         {
             $listSource .= "<div class=\"{$modalClass}memedivlistitem\">";
             $datePublished = null;
+            $rightExpandDiv = '<div class="expandButton">';
+            $rightExpandDivClose = "";
             //LOOP THOUGH FORM ELEMENTS
             foreach($formArray->MemeListTable->formfield as $formfield)
             {
@@ -203,7 +205,7 @@ class MemeHtml
                         $source = $htmlFormField->getSource(true);
                         if (trim($source) != "None")
                         {
-                            $listSource .= "<br/><b>Folksonomies:</b> ".$source;
+                            $listSource .= "<br/><div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
                         }
                         if ($referenceId || $schemaId)
                         {
@@ -227,8 +229,9 @@ class MemeHtml
                                 $parentId = "&schemaid=".$schemaId;
                             }
                             
-                            $listSource .= "<span style=\"float:right;position:relative;right:-5px;\" class=\"menulink\">"
+                            $listSource .= "<span style=\"float:right;position:relative;right:-5px;top:-20px;\">"
                             	."<a href=\"javascript:void(0)\""
+                            	." class=\"menulink\""
                             	." onClick=\""
                             	."getContent('"
                             	. ROOT_FOLDER . "framework/api/processForm.php"
@@ -246,20 +249,18 @@ class MemeHtml
                             	."</span>";
                         }
                         break;
-                    case "Expand":
-                        $listSource .= "<span  class=\"menulink\"><a href=\"javascript:void(0);\" id=\"expand{$rowdata->Id}\" onclick=\"expandQuote('{$rowdata->Id}');\" style=\"float:right;\">expand</a></span>";
-                        break;
                     case "ReferenceCount":
-                        $listSource .= "<span style=\"float:right;\">".$htmlFormField->getSource(true)."</span>";
-                        break;
                     case "TripleCount":
-                        $listSource .= "<span style=\"float:right;\">".$htmlFormField->getSource(true)."</span>";
-                        break;
                     case "SchemaCount":
-                        $listSource .= "<span style=\"float:right;\">".$htmlFormField->getSource(true)."</span>";
+                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
+                        $rightExpandDiv = '';
+                        $rightExpandDivClose = "</div>";
+                        break;
+                    case "Expand":
+                        $listSource .= "<a href=\"javascript:void(0);\" class=\"menulink\" id=\"expand{$rowdata->Id}\" onclick=\"expandQuote('{$rowdata->Id}');\">expand</a>";
                         break;
                     case "Quote":
-                        $listSource .= "</div><span class=\"quoteDisplay\" id=\"quote{$rowdata->Id}\"><div class=\"{$modalClass}memedivlistitemquote\">"
+                        $listSource .= $rightExpandDivClose."</div><span class=\"quoteDisplay\" id=\"quote{$rowdata->Id}\"><div class=\"{$modalClass}memedivlistitemquote\">"
                         	.$htmlFormField->getSource(true) . "</div></span>";
                         break;
                     default:

@@ -60,6 +60,15 @@
         </methods>
     </formfield>
     <formfield>
+        <label>ReferenceCount</label>
+        <type>MemexPlexObjectCount</type>
+        <id></id>
+        <valueXpath>ReferenceCount</valueXpath>
+        <methods>
+            <setObjectType>reference</setObjectType>
+        </methods>
+    </formfield>
+    <formfield>
         <label>MemeCount</label>
         <type>MemexPlexObjectCount</type>
         <id></id>

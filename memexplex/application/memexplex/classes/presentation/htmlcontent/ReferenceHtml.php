@@ -292,6 +292,8 @@ class ReferenceHtml
             $listSource .= "<div class=\"{$modalClass}referencedivlistitem\">";
             $datePublished = null;
             $imageset = false;
+            $rightExpandDiv = "<div class=\"expandButton\" style=\"left:-70px;\">";
+            $rightExpandDivClose = "";
             //LOOP THOUGH FORM ELEMENTS
             foreach($formArray->ReferenceListTable->formfield as $formfield)
             {
@@ -303,9 +305,9 @@ class ReferenceHtml
                         if (trim($htmlFormField->getSource(true)) != "&nbsp;")
                         {
                             $listSource .= 
-                            	'<span style="float:right;position:relative;top:-5px;right:-5px;">' 
+                            	'<div style="float:right;position:relative;top:-5px;right:-5px;">' 
                                 .$htmlFormField->getSource(true)
-                                .'</span>';
+                                .'</div>';
                             $imageset = true;
                         }
                         break;
@@ -346,7 +348,7 @@ class ReferenceHtml
                         $source = $htmlFormField->getSource(true);
                         if (trim($source) != "None")
                         {
-                            $listSource .= "<b>Folksonomies:</b> ".$source;
+                            $listSource .= "<div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
                         }
                         
                         $br = "";
@@ -373,8 +375,9 @@ class ReferenceHtml
                                 $parentId = "&parentreferenceid=".$parentReferenceId;
                             }
                             
-                            $listSource .= "$clearBoth<span style=\"float:right;position:relative;right:-5px;\" class=\"menulink\">"
+                            $listSource .= "$clearBoth<div style=\"float:right;position:relative;right:-5px;top:-20px;\">"
                             	."<a href=\"javascript:void(0)\""
+                            	." class=\"menulink\""
                             	." onClick=\""
                             	."getContent('"
                             	. ROOT_FOLDER . "framework/api/processForm.php"
@@ -389,19 +392,22 @@ class ReferenceHtml
                             	."','processFormCallback'"
                             	.");"
                             	."\">associate</a>"
-                            	."</span>$br";
+                            	."</div>$br";
                         }
                         $listSource .=
                             $clearBoth;
                         break;
+                    case "ReferenceCount":
                     case "MemeCount":
-                        $listSource .= "<span style=\"float:right;;position:relative;top:-20px;left:-70px;\">".$htmlFormField->getSource(true)."</span>";
+                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
+                        $rightExpandDiv = "";
+                        $rightExpandDivClose = "</div>";
                         break;
                     default:
                         $listSource .= $htmlFormField->getSource(true);
                 }
             }
-            $listSource .= "</div>";
+            $listSource .= $rightExpandDivClose."</div>";
         }
         return $listSource;
     }

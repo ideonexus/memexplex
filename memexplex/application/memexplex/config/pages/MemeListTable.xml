@@ -52,11 +52,6 @@
         </methods>
     </formfield>
     <formfield>
-        <label>Expand</label>
-        <type>Text</type>
-        <!--  See MemeHtml->MemeList for use -->
-    </formfield>
-    <formfield>
         <label>SchemaCount</label>
         <type>MemexPlexObjectCount</type>
         <id></id>
@@ -82,6 +77,11 @@
         <methods>
             <setObjectType>reference</setObjectType>
         </methods>
+    </formfield>
+    <formfield>
+        <label>Expand</label>
+        <type>Text</type>
+        <!--  See MemeHtml->MemeList for use -->
     </formfield>
     <formfield>
         <label>Quote</label>

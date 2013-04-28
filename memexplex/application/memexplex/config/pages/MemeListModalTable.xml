@@ -36,6 +36,33 @@
         </methods>
     </formfield>
     <formfield>
+        <label>SchemaCount</label>
+        <type>MemexPlexObjectCount</type>
+        <id></id>
+        <valueXpath>SchemaCount</valueXpath>
+        <methods>
+            <setObjectType>schema</setObjectType>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>TripleCount</label>
+        <type>MemexPlexObjectCount</type>
+        <id></id>
+        <valueXpath>TripleCount</valueXpath>
+        <methods>
+            <setObjectType>triple</setObjectType>
+        </methods>
+    </formfield>
+    <formfield>
+        <label>ReferenceCount</label>
+        <type>MemexPlexObjectCount</type>
+        <id></id>
+        <valueXpath>ReferenceCount</valueXpath>
+        <methods>
+            <setObjectType>reference</setObjectType>
+        </methods>
+    </formfield>
+    <formfield>
         <label>Expand</label>
         <type>Text</type>
         <!--  See MemeHtml->MemeList for use -->

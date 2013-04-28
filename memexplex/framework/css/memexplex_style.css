@@ -547,7 +547,7 @@ a.pagingCurrent
 	background-color: #000066;
 }
 
-.menulink a
+a.menulink 
 {
 	text-align: center;
 	position:relative;
@@ -566,8 +566,20 @@ a.pagingCurrent
     border-radius: 4px
 }
 
-.menulink a:hover
+a.menulink:hover
 {  
 	color: white; 
 	background-color: #000066;
+}
+
+.expandButton
+{
+	float:right;
+	position:relative;
+	top:-20px;
+}
+
+.folksonomies
+{
+	width:75%;
 }

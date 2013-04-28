@@ -29,6 +29,9 @@ class Schema extends MemexPlexObject
      */
     protected $schemaList;
 
+    protected $memeCount;
+    protected $schemaCount;
+    
     /**
      * Called when a new object is instantiated, 
      * accepts all properties as arguments.
@@ -47,6 +50,7 @@ class Schema extends MemexPlexObject
      * @param MemeList $memeList
      * @param SchemaList $schemaList
      * @param int $memeCount
+     * @param int $schemaCount
      */
     public function __construct(
         $id             = null
@@ -61,6 +65,7 @@ class Schema extends MemexPlexObject
         ,$memeList      = null
         ,$schemaList    = null
         ,$memeCount     = null
+        ,$schemaCount   = null
     )
     {
         $this->setId($id);
@@ -75,6 +80,7 @@ class Schema extends MemexPlexObject
         $this->setMemeList($memeList);
         $this->setSchemaList($schemaList);
         $this->setMemeCount($memeCount);
+        $this->setSchemaCount($schemaCount);
     }
 
     /**
@@ -167,6 +173,22 @@ class Schema extends MemexPlexObject
     public function setMemeCount($memeCount=0)
     {
         $this->memeCount = $memeCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSchemaCount()
+    {
+        return $this->schemaCount;
+    }
+
+    /**
+     * @param int
+     */
+    public function setSchemaCount($schemaCount=0)
+    {
+        $this->schemaCount = $schemaCount;
     }
 
     /**

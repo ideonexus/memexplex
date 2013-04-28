@@ -101,6 +101,52 @@ WHERE
                 }
             }
             
+            $subjectid = $row['subject_meme_id'];
+            $sql = "
+SELECT
+    t.id    AS taxonomy_id
+    ,t.text AS taxonomy
+FROM
+    meme_taxonomy mt
+    INNER JOIN taxonomy t ON
+    	mt.taxonomy_id = t.id
+WHERE
+	mt.meme_id = $subjectid;
+";
+            $trs = $db->fetch_all_array($sql);
+            $subjectTaxonomyList = new TaxonomyList;
+            foreach ($trs AS $trow)
+            {
+                if (!$subjectTaxonomyList[$trow['taxonomy_id']])
+                {
+                    $subjectTaxonomyList[$trow['taxonomy_id']] =
+                        new Taxonomy($trow['taxonomy_id'],$trow['taxonomy']);
+                }
+            }
+            
+            $objectid = $row['object_meme_id'];
+            $sql = "
+SELECT
+    t.id    AS taxonomy_id
+    ,t.text AS taxonomy
+FROM
+    meme_taxonomy mt
+    INNER JOIN taxonomy t ON
+    	mt.taxonomy_id = t.id
+WHERE
+	mt.meme_id = $objectid;
+";
+            $trs = $db->fetch_all_array($sql);
+            $objectTaxonomyList = new TaxonomyList;
+            foreach ($trs AS $trow)
+            {
+                if (!$objectTaxonomyList[$trow['taxonomy_id']])
+                {
+                    $objectTaxonomyList[$trow['taxonomy_id']] =
+                        new Taxonomy($trow['taxonomy_id'],$trow['taxonomy']);
+                }
+            }
+            
             if (!$tripleList[$id])
             {
                 $tripleList[$id] = new Triple
@@ -128,7 +174,8 @@ WHERE
                     ,new Meme(
                         $row['subject_meme_id']
                         ,$row['subject_meme_title']
-                        ,null,null,null,null,null
+                        ,null,null,null,null
+                        ,$subjectTaxonomyList
                         ,$row['subject_meme_text']
                         ,$row['subject_meme_quote']
                     )
@@ -139,7 +186,8 @@ WHERE
                     ,new Meme(
                         $row['object_meme_id']
                         ,$row['object_meme_title']
-                        ,null,null,null,null,null
+                        ,null,null,null,null
+                        ,$objectTaxonomyList
                         ,$row['object_meme_text']
                         ,$row['object_meme_quote']
                     )

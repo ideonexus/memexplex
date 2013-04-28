@@ -17,10 +17,10 @@ class DataAccessComponentReference
      */
     protected $standardsqlcols = "
      r.id                           AS id
-	,rsty.id                        AS reference_super_type_id
-	,rsty.description               AS reference_super_type_description
+		,rsty.id                        AS reference_super_type_id
+		,rsty.description               AS reference_super_type_description
     ,r.reference_type_id            AS reference_type_id
-	,rty.reference_type_description AS reference_type_description
+		,rty.reference_type_description AS reference_type_description
     ,r.reference_date               AS reference_date
     ,r.title                        AS title
     ,r.published                    AS published
@@ -41,7 +41,7 @@ class DataAccessComponentReference
     ,r.amazon_url                   AS amazon_url
     ,r.curator_id                   AS curator_id
     ,u.display_name                 AS curator_display_name
-	,u.publish_by_default           AS publish_by_default 
+		,u.publish_by_default           AS publish_by_default 
     ,u.curator_level_id             AS curator_level_id
     	";
 
@@ -148,6 +148,26 @@ GROUP BY
 	            $memeCount = $trow['meme_count'];
             }
             
+            $referenceCount = 0;
+            $sql = "
+SELECT
+    r.id                    AS reference_id
+	,COUNT(mr.child_id) AS reference_count
+FROM
+    reference r
+	LEFT JOIN reference_parent_child mr ON r.id = mr.parent_id
+WHERE
+	r.id = $id
+GROUP BY
+	reference_id;
+";
+
+            $trs = $db->fetch_all_array($sql);
+            foreach ($trs AS $trow)
+            {
+	            $referenceCount = $trow['reference_count'];
+            }
+            
             if (!$referenceList[$id])
             {
                 $referenceList[$id] = new Reference
@@ -196,6 +216,7 @@ GROUP BY
                     ,$row['asin']
                     ,$row['amazon_url']
                     ,$memeCount
+                    ,$referenceCount
                 );
             }
         }

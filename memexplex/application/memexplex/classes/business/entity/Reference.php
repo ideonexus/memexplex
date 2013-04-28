@@ -162,6 +162,7 @@ class Reference extends MemexPlexObject
         ,$asin                 = null
         ,$amazonUrl            = null
         ,$memeCount            = null
+        ,$referenceCount       = null
     )
     {
         $this->setId($id);
@@ -190,6 +191,7 @@ class Reference extends MemexPlexObject
         $this->setAsin($asin);
         $this->setAmazonUrl($amazonUrl);
         $this->setMemeCount($memeCount);
+        $this->setReferenceCount($referenceCount);
     }
 
     /**
@@ -519,6 +521,22 @@ class Reference extends MemexPlexObject
     public function setMemeCount($memeCount=0)
     {
         $this->memeCount = $memeCount;
+    }
+
+    /**
+     * @return int
+     */
+    public function getReferenceCount()
+    {
+        return $this->referenceCount;
+    }
+
+    /**
+     * @param int
+     */
+    public function setReferenceCount($referenceCount=0)
+    {
+        $this->referenceCount = $referenceCount;
     }
 
     /**

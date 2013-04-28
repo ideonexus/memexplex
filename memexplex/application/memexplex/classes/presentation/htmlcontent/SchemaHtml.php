@@ -130,6 +130,8 @@ class SchemaHtml
         {
             $listSource .= "<div class=\"{$modalClass}schemadivlistitem\">";
             $datePublished = null;
+            $rightExpandDiv = '<div class="expandButton">';
+            $rightExpandDivClose = "";
             //LOOP THOUGH FORM ELEMENTS
             foreach($formArray->SchemaListTable->formfield as $formfield)
             {
@@ -174,7 +176,7 @@ class SchemaHtml
                         $source = $htmlFormField->getSource(true);
                         if (trim($source) != "None")
                         {
-                            $listSource .= "<br/><b>Folksonomies:</b> ".$source;
+                            $listSource .= "<br/><div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
                         }
                         if ($memeId || $parentSchemaId)
                         {
@@ -198,8 +200,9 @@ class SchemaHtml
                                 $parentId = "&parentschemaid=".$parentSchemaId;
                             }
                             
-                            $listSource .= "<span style=\"float:right;position:relative;right:-5px;\" class=\"menulink\">"
+                            $listSource .= "<span style=\"float:right;position:relative;right:-5px;top:-20px;\">"
                             	."<a href=\"javascript:void(0)\""
+                            	." class=\"menulink\""
                             	." onClick=\""
                             	."getContent('"
                             	. ROOT_FOLDER . "framework/api/processForm.php"
@@ -218,13 +221,16 @@ class SchemaHtml
                         }
                         break;
                     case "MemeCount":
-                        $listSource .= "<span style=\"float:right;\">".$htmlFormField->getSource(true)."</span>";
+                    case "SchemaCount":
+                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
+                        $rightExpandDiv = "";
+                        $rightExpandDivClose = "</div>";
                         break;
                     default:
                         $listSource .= $htmlFormField->getSource(true);
                 }
             }
-            $listSource .= "</div>";
+            $listSource .= $rightExpandDivClose."</div>";
         }
         return $listSource;
     }
