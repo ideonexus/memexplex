@@ -51,13 +51,11 @@ class ReferenceHtml
             )
             {
                 $ReferenceImageDisplay =
-                    '<div>'
-                    .'<span style="float:left;position:relative;left:20px;"><img'
+                    '<div class="referenceDivImage">'
+                    .'<img'
                     .' src="'.$pageObjectsXml->ReferenceList->Reference->LargeImageUrl.'"'
-                    .' height="229"'
-                    .' width="150"'
-                    .' /></span>';
-                $ReferenceDivWidth = ' style="width:530px;float:right;position:relative;top:30px;right:20px;"';
+                    .' />';
+                //$ReferenceDivWidth = ' style="width:530px;float:right;position:relative;top:30px;right:20px;"';
                 $ReferenceImageClosingDiv = "</div>";
             }
             
@@ -133,6 +131,7 @@ class ReferenceHtml
                     $disassociateLink =
                         '<span style="float:right;" class="menulink">'
                     	."<a href=\"javascript:void(0)\""
+                    	." class=\"menulink\""
                     	." onClick=\""
                     	."getContent('"
                     	. ROOT_FOLDER . "framework/api/processForm.php"
@@ -172,7 +171,6 @@ class ReferenceHtml
                     '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
                 	. '<div class="pagination">'
                     . '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'ReferenceModal/'
@@ -182,7 +180,6 @@ class ReferenceHtml
                     . 'Add New Reference'
                 	. '</a>'
                     . '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'ReferenceListModal/'
@@ -191,7 +188,7 @@ class ReferenceHtml
                     . '">'
                     . 'Add Existing Reference'
                 	. '</a>'
-                	. '</div><br/>';
+                	. '</div>';
                 JavaScript::addJavaScriptInclude("subModal");
                 CascadingStyleSheets::addCascadingStyleSheetsInclude("subModal");
             }
@@ -249,8 +246,8 @@ class ReferenceHtml
         $ReferenceFieldSet->appendFormFieldSet();
         // END REFERENCE TABLE CONSTRUCTION
         
-        return $ReferenceTypeFieldSet->getFieldSetSource()
-            ."<br/>"
+        return 
+            $ReferenceTypeFieldSet->getFieldSetSource()
             .$authorsTable->getFormTableSource()
             .$ReferenceFieldSet->getFieldSetSource();
     }
@@ -292,8 +289,9 @@ class ReferenceHtml
             $listSource .= "<div class=\"{$modalClass}referencedivlistitem\">";
             $datePublished = null;
             $imageset = false;
-            $rightExpandDiv = "<div class=\"expandButton\" style=\"left:-70px;\">";
+            $rightExpandDiv = "<div class=\"expandButton\">";
             $rightExpandDivClose = "";
+            $rightExpandDivAssociate = "";
             //LOOP THOUGH FORM ELEMENTS
             foreach($formArray->ReferenceListTable->formfield as $formfield)
             {
@@ -305,7 +303,7 @@ class ReferenceHtml
                         if (trim($htmlFormField->getSource(true)) != "&nbsp;")
                         {
                             $listSource .= 
-                            	'<div style="float:right;position:relative;top:-5px;right:-5px;">' 
+                            	'<div class="referenceDivImageSmall">' 
                                 .$htmlFormField->getSource(true)
                                 .'</div>';
                             $imageset = true;
@@ -327,18 +325,18 @@ class ReferenceHtml
                             {
                                 $by = $datePublishedSource."&nbsp;by&nbsp;";
                             }
-                            $listSource .= '<span style="float:right;">'
-                                .$by.$htmlFormField->getSource(true)."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$by.$htmlFormField->getSource(true)."</div>";
                         }
                         elseif ($datePublished)
                         {
-                            $listSource .= '<span style="float:right;">'
-                                .$datePublishedSource."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$datePublishedSource."</div>";
                         }
                         break;
                     case "Title":
                         $listSource .= 
-                            '<h2><img src="'.ROOT_FOLDER.'framework/images/reference.gif" width="13" height="13" border="0"/>' 
+                            '<h2><img src="'.ROOT_FOLDER.'framework/images/reference.png" class="referenceListIcon" />' 
                         	."&nbsp;".$htmlFormField->getSource(true)."</h2>";
                         break;
                     case "Reference":
@@ -349,17 +347,16 @@ class ReferenceHtml
                         if (trim($source) != "None")
                         {
                             $listSource .= "<div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
+                            //An invislbe placeholder div for absolute-positioned folksonomies.
+                            $listSource .= "<div class=\"folksonomiesHeight\"><b>Folksonomies:</b> ".$source."</div>";
                         }
-                        
-                        $br = "";
-                        $clearBoth = "";
-                        if ($imageset)
-                        {
-                            $br = "<br/>";
-                            $clearBoth = '<div style="clear:both"></div>';
-                        }
-                        
-                        if ($memeId || $parentReferenceId)
+                        break;
+                    case "ReferenceCount":
+                    case "MemeCount":
+                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
+												
+												//Associate/Disassociate Button
+                        if (($memeId || $parentReferenceId) && $rightExpandDivAssociate == "")
                         {
                             if (trim($source) == "None")
                             {
@@ -375,8 +372,8 @@ class ReferenceHtml
                                 $parentId = "&parentreferenceid=".$parentReferenceId;
                             }
                             
-                            $listSource .= "$clearBoth<div style=\"float:right;position:relative;right:-5px;top:-20px;\">"
-                            	."<a href=\"javascript:void(0)\""
+                            $rightExpandDivAssociate = 
+                            	"<a href=\"javascript:void(0)\""
                             	." class=\"menulink\""
                             	." onClick=\""
                             	."getContent('"
@@ -391,15 +388,8 @@ class ReferenceHtml
                                 . $rowdata->Id
                             	."','processFormCallback'"
                             	.");"
-                            	."\">associate</a>"
-                            	."</div>$br";
+                            	."\">associate</a>";
                         }
-                        $listSource .=
-                            $clearBoth;
-                        break;
-                    case "ReferenceCount":
-                    case "MemeCount":
-                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
                         $rightExpandDiv = "";
                         $rightExpandDivClose = "</div>";
                         break;
@@ -407,7 +397,7 @@ class ReferenceHtml
                         $listSource .= $htmlFormField->getSource(true);
                 }
             }
-            $listSource .= $rightExpandDivClose."</div>";
+            $listSource .= $rightExpandDivAssociate.$rightExpandDivClose."</div>";
         }
         return $listSource;
     }

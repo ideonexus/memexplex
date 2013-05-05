@@ -36,10 +36,6 @@
 #popupInner {
 	border: 2px solid #000000;
 	background-color: #ffffff;
-    -webkit-border-radius: 20px;    /* for Safari and Chrome */
-    -moz-border-radius: 20px;       /* for Firefox */
-    -khtml-border-radius: 20px;      /* for Linux */
-    border-radius: 20px;             /* CSS3 */
 }
 
 #popupFrame {
@@ -48,10 +44,6 @@
 	height: 100%;
 	position: relative;
 	z-index: 202;
-    -webkit-border-radius: 20px;    /* for Safari and Chrome */
-    -moz-border-radius: 20px;       /* for Firefox */
-    -khtml-border-radius: 20px;      /* for Linux */
-    border-radius: 20px;             /* CSS3 */
 }
 #popupTitleBar {
 	background-color: #486CAE;
@@ -65,10 +57,6 @@
 	border-right: 1px solid #204095;
 	position: relative;
 	z-index: 203;
-    -webkit-border-radius: 20px 20px 0px 0px;    /* for Safari and Chrome */
-    -moz-border-radius: 20px 20px 0px 0px;       /* for Firefox */
-    -khtml-border-radius: 20px 20px 0px 0px;      /* for Linux */
-    border-radius: 20px 20px 0px 0px;             /* CSS3 */
 }
 #popupTitle {
 	float:left;
@@ -81,6 +69,8 @@
 }
 #popCloseBox {
 	position:relative;
-	top:2px;
-	left:-10px;
+	height:30px;
+	width:30px;
+	top:-5px;
+	left:5px;
 }

@@ -18,18 +18,18 @@
         <form>
             <id>frmEditReference</id>
             <formfield>
-                <type>ConditionalButtonDelete</type>
-                <id>btnSave</id>
-                <methods>
-                	<setForm>frmEditReference</setForm>
-                    <setConfirmation>Reference</setConfirmation>
-                </methods>
-            </formfield>
-            <formfield>
                 <type>ButtonSave</type>
                 <id>btnSave</id>
                 <methods>
                     <setOnClickJavaScript>FormValidation('frmEditReference');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+            <formfield>
+                <type>ConditionalButtonDelete</type>
+                <id>btnDelete</id>
+                <methods>
+                	<setForm>frmEditReference</setForm>
+                    <setConfirmation>Reference</setConfirmation>
                 </methods>
             </formfield>
         </form>

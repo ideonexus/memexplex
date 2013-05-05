@@ -1029,23 +1029,16 @@ class HtmlTable
             }
 
             return
-                "<table class=\"layout\" width=\"100%\">"
-                .  "<tr>"
-                .    "<td><b>{$this->tableTitle}:"
-                .    "<a class=\"noLink\" name=\"{$this->tableId}AnchorEdit\"></a>"
-                .    "</b></td>"
-                .    "<td width=\"100%\"><hr /></td>"
-                .    $this->formSectionBreakAppend
-                .  "</tr>"
-                ."</table>"
+                "<fieldset>"
+                ."<legend>{$this->tableTitle}</legend>"
                 ."<table class=\"tableform\""
                 .    " id=\"{$this->tableId}TableEdit\">"
                 .    "<tbody id=\"{$this->tableId}TableTbodyEdit\">"
                 .    $this->formTableSource
                 .    "</tbody>"
                 ."</table>"
-                ."<br/>"
-                .$tableFormFields;
+                .$tableFormFields
+                ."</fieldset>";
         }
         else
         {
@@ -1065,7 +1058,7 @@ class HtmlTable
             $classDisplay = "";
             if (strstr($this->tableSource, "largeBlue"))
             {
-                $classDisplay = " class=\"layout\"";
+                $classDisplay = " class=\"formlayout\"";
             }
             else
             {
@@ -1073,23 +1066,19 @@ class HtmlTable
             }
             
             return
-                "<table class=\"layout\" width=\"100%\">"
-                .  "<tr>"
-                .    "<td><b>{$this->tableTitle}:"
+                "<div class=\"formlayout\">"
+                .    "<b>{$this->tableTitle}:"
                 .    "<a class=\"noLink\" name=\"{$this->tableId}AnchorView\"></a>"
-                .    "</b></td>"
-                .    "<td width=\"100%\"><hr /></td>"
+                .    "</b>"
                 .    $this->sectionBreakAppend
-                .  "</tr>"
-                ."</table>"
+                ."</div>"
                 ."<table"
                 .    $classDisplay
                 .    " id=\"{$this->tableId}TableView\">"
                 .    "<tbody id=\"{$this->tableId}TableTbodyView\">"
                 .    $this->tableSource
                 .    "</tbody>"
-                ."</table>"
-                ."<br/>";
+                ."</table>";
         }
         else
         {
@@ -1143,24 +1132,18 @@ class HtmlTable
         if ($viewEdit == 'edit')
         {
             return
-                "<table class=\"layout\">"
-                .  "<tr>"
-                .    "<td><b>{$this->tableTitle}:</b></td>"
-                .    "<td width=\"100%\"><hr /></td>"
+                "<div class=\"formlayout\">"
+                .    "<b>{$this->tableTitle}:</b>"
                 .    $this->formSectionBreakAppend
-                .  "</tr>"
-                ."</table>";
+                ."</div>";
         }
         else
         {
             return
-                "<table class=\"layout\">"
-                .  "<tr>"
-                .    "<td><b>{$this->tableTitle}:</b></td>"
-                .    "<td width=\"100%\"><hr /></td>"
+                "<div class=\"formlayout\">"
+                .    "<b>{$this->tableTitle}:</b>"
                 .    $this->sectionBreakAppend
-                .  "</tr>"
-                ."</table>";
+                ."</div>";
         }
     }
 

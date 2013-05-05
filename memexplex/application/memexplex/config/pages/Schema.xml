@@ -18,18 +18,18 @@
         <form>
             <id>frmEditSchema</id>
             <formfield>
-                <type>ConditionalButtonDelete</type>
-                <id>btnSave</id>
-                <methods>
-                	<setForm>frmEditSchema</setForm>
-                    <setConfirmation>Schema</setConfirmation>
-                </methods>
-            </formfield>
-            <formfield>
                 <type>ButtonSave</type>
                 <id>btnSave</id>
                 <methods>
                     <setOnClickJavaScript>FormValidation('frmEditSchema');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+            <formfield>
+                <type>ConditionalButtonDelete</type>
+                <id>btnDelete</id>
+                <methods>
+                	<setForm>frmEditSchema</setForm>
+                    <setConfirmation>Schema</setConfirmation>
                 </methods>
             </formfield>
         </form>

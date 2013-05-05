@@ -44,12 +44,12 @@ implements HtmlContentInterface
         $Form->buildForm();
 
         $this->source =
-            '<div align="center"><table class="layout"><tr><td>'
+            '<div align="center">'
             .$Form->getSource()
             .'<a href="'
             .ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
             .'ResetPassword/'
             .'">Forgot Password?</a>'
-            .'</td></tr></table></div>';
+            .'</div>';
     }
 }

@@ -58,6 +58,21 @@ implements FormFieldInterface
     }
 
     /**
+     * Acts as a label for the selector.
+     * @var string
+     */
+    protected $firstOptionText = null;
+
+    /**
+     * Label for the selector.
+     * @param $optionText
+     */
+    public function setFirstOptionText($optionText=null)
+    {
+        $this->firstOptionText = $optionText;
+    }
+
+    /**
      * Builds the select arrays from SimpleXmlObjects.
      *
      * @param array $valuesArray
@@ -313,8 +328,10 @@ implements FormFieldInterface
     {
 
         $this->source = "<span id=\"alert{$this->id}\"></span>"
+        								. "<div class=\"styled-select\" id=\"div{$this->id}\">"
                         . "<select name=\"{$this->id}\""
                         . " id=\"{$this->id}\""
+                        . " placeholder=\"{$this->label}\""
                         . "{$this->onChangeJavaScript}"
                         . " disabled=\"disabled\""
                         . ">";
@@ -324,18 +341,34 @@ implements FormFieldInterface
         {
             $displayOption = false;
         }
-
+        $firstLoop = true;
         foreach ($this->selectArray as $key => $value)
         {
-
+        	  $disabled = "";
             if ($displayOption)
             {
+                //SET THE SELECTOR TITLE AS FIRST OPTION
+                if ($firstLoop)
+                {
+                    $key = "";
+                    if ($this->firstOptionText != null )
+                    {
+                    		$value = $this->firstOptionText;
+                    }
+                    else
+                    {
+                    	$value = $this->label;
+                    }
+                    $disabled = " disabled  style=\"display:none;\"";
+                }
+                $firstLoop = false;
+
                 $optionId = "";
 
                 $this->selectedDisplay = "";
                 if ($this->defaultValue == $key)
                 {
-                    $this->selectedDisplay = " selected=\"selected\"";
+                    $this->selectedDisplay = " selected";
                 }
 
                 if (null != $this->parentArray)
@@ -353,6 +386,7 @@ implements FormFieldInterface
                         $this->source .= "<option value=\"{$key}\""
                                               . " class=\"{$class}\""
                                               . $optionId
+                                              . $disabled
                                               . $this->selectedDisplay
                                               . ">{$value}</option>";
                     }
@@ -361,6 +395,7 @@ implements FormFieldInterface
                 {
                     $this->source .= "<option value=\"{$key}\""
                                           . $optionId
+                                          . $disabled
                                           . $this->selectedDisplay
                                           . ">{$value}</option>";
                 }
@@ -368,7 +403,7 @@ implements FormFieldInterface
             $displayOption = true;
         }
 
-        $this->source .= "</select>\n";
+        $this->source .= "</select></div>\n";
 
     }
 

@@ -48,11 +48,8 @@ implements FormFieldInterface
         //Show Link to Google
         $this->source = 
             '<div'
-        	.' style="width:'.$this->width.'px;height:'.$this->height.'px;'
-        	.'float:right;border:solid;position:relative;top:-20px;'
-        	.'text-align:center;margin-bottom:-20px;">'
+        	.' class="googleBookDisplay">'
         	.'<a class="submodal-600-525"'
-        	.' style="display:none;"'
         	.' href="'
             .ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
             .'GoogleBooksSearch/'
@@ -64,8 +61,7 @@ implements FormFieldInterface
             $this->source .= 
             	'<img'
                 .' src="'.$this->defaultValue.'"'
-                .' height="'.$this->height.'"'
-                .' width="'.$this->width.'"'
+                .' class="googleBookDisplay">'
                 .' />';
             
             //Default value and source are the same.
@@ -75,8 +71,8 @@ implements FormFieldInterface
         {
             //Show Link to Amazon
             $this->source .=
-                '<br/><span style="font-size:150%;">' 
-                .'Click here<br/>to search<br/>Google<br/>Books<br/>for<br/>References'
+                '<span class="googleBookDisplayText">' 
+                .'Click here to search Google Books for References'
                 .'</span>';
         }
         

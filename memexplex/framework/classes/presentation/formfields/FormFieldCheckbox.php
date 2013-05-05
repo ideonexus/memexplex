@@ -23,15 +23,23 @@ implements FormFieldInterface
 
         if (BoolUtilities::toBoolFlexible($this->defaultValue))
         {
-            $checked = ' CHECKED ';
+            $checked = ' checked';
         }
 
-        $this->source = "<input type=\"checkbox\""
-                      . " name=\"{$this->id}\""
-                      . " id=\"{$this->id}\""
-                      . " value=\"Y\""
-                      . $checked
-                      . "disabled=\"disabled\" />";
+//        $this->source = "<input type=\"checkbox\""
+//                      . " name=\"{$this->id}\""
+//                      . " id=\"{$this->id}\""
+//                      . " value=\"Y\""
+//                      . $checked
+//                      . " disabled=\"disabled\" />";
+
+					$this->source = "<div class=\"onoffswitch\" id=\"{$this->id}onoffswitch\">"
+			    ."<input type=\"checkbox\" name=\"{$this->id}\" id=\"{$this->id}\" class=\"onoffswitch-checkbox\" disabled=\"disabled\" {$checked} />"
+			    ."<label class=\"onoffswitch-label\" for=\"{$this->id}\">"
+			    ."<div class=\"onoffswitch-inner\"></div>"
+			    ."<div class=\"onoffswitch-switch\"></div>"
+			    ."</label>"
+			    ."</div>";
     }
 
     /**

@@ -26,13 +26,13 @@ class Page extends Html
             $pageContent =
                 new HeaderFooter(
                     new JavaScript(
-                        new MenuApplication(
+//                        new MenuApplication(
                             new MenuPage(
                                 new ErrorDisplay(
                                     new HtmlContentMain()
                                 )
                             )
-                        )
+//                        )
                     )
                 );
         }

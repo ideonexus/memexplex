@@ -106,7 +106,6 @@ implements HtmlContentInterface
                     .'</div>'
                     .'<div class="modaltripledivlistitem" style="text-align:center;">'
                     . '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeListModal/'
@@ -118,7 +117,6 @@ implements HtmlContentInterface
                     .$predicateDescription
                     .'</div>'
                     . '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeListModal/'

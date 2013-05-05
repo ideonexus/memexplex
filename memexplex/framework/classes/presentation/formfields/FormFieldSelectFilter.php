@@ -15,21 +15,6 @@ class FormFieldSelectFilter extends FormFieldSelect
 implements FormFieldInterface
 {
     /**
-     * Acts as a label for the selector.
-     * @var string
-     */
-    protected $firstOptionText = null;
-
-    /**
-     * Label for the selector.
-     * @param $optionText
-     */
-    public function setFirstOptionText($optionText=null)
-    {
-        $this->firstOptionText = $optionText;
-    }
-
-    /**
      * Uses GET method instead of AJAX Call
      * @var boolean
      */
@@ -50,8 +35,10 @@ implements FormFieldInterface
     {
 
         $this->source = "<span id=\"alert{$this->id}\"></span>"
+        		. "<div class=\"styled-select\" id=\"div{$this->id}\">"
             . "<select name=\"{$this->id}\""
             . " id=\"{$this->id}\""
+            . " placeholder=\"{$this->label}\""
             . "{$this->onChangeJavaScript}"
             . " onchange=\"" . $onChangeJavaScript;
         
@@ -95,13 +82,15 @@ implements FormFieldInterface
         $firstLoop = true;
         foreach ($this->selectArray as $key => $value)
         {
+        	  $disabled = "";
             if ($displayOption)
             {
                 //SET THE SELECTOR TITLE AS FIRST OPTION
-                if ($this->firstOptionText && $firstLoop)
+                if ($this->firstOptionText != null && $firstLoop)
                 {
                     $key = "";
                     $value = $this->firstOptionText;
+                    $disabled = " disabled  style=\"display:none;\"";
                 }
                 $firstLoop = false;
 
@@ -110,14 +99,14 @@ implements FormFieldInterface
                 $this->selectedDisplay = "";
                 if ($this->defaultValue == $key)
                 {
-                    $this->selectedDisplay = " selected=\"selected\"";
+                    $this->selectedDisplay = " selected";
                 }
                 elseif ($this->getViceAjax 
                     && isset($_GET[trim($this->id)])
                     && $_GET[trim($this->id)] == $key
                 )
                 {
-                    $this->selectedDisplay = " selected=\"selected\"";
+                    $this->selectedDisplay = " selected";
                 }
 
                 if (null != $this->parentArray)
@@ -135,6 +124,7 @@ implements FormFieldInterface
                         $this->source .= "<option value=\"{$key}\""
                         . " class=\"{$class}\""
                         . $optionId
+                        . $disabled
                         . $this->selectedDisplay
                         . ">{$value}</option>";
                     }
@@ -143,6 +133,7 @@ implements FormFieldInterface
                 {
                     $this->source .= "<option value=\"{$key}\""
                     . $optionId
+                    . $disabled
                     . $this->selectedDisplay
                     . ">{$value}</option>";
                 }
@@ -150,7 +141,7 @@ implements FormFieldInterface
             $displayOption = true;
         }
 
-        $this->source .= "</select>\n";
+        $this->source .= "</select></div>\n";
 
     }
 

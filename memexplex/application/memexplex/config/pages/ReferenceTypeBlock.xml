@@ -4,13 +4,18 @@
         ReferenceList/Reference
     </recordDataXpath>
     <formfield>
+        <label></label>
+        <type>ImageGoogleBooks</type>
+        <id>largeImageDisplay</id>
+        <valueXpath>LargeImageUrl</valueXpath>
+        <labelInline/>
+        <nobreak/>
+    </formfield>
+    <formfield>
         <label>Disseminate</label>
         <type>CheckboxDisseminate</type>
         <id>disseminate</id>
         <valueXpath>Published</valueXpath>
-        <span>
-        	<custom>style="float: right;"</custom>
-        </span>
         <labelInline/>
         <nobreak/>
     </formfield>
@@ -44,18 +49,6 @@
         <methods>
             <setChildSelect>referenceType</setChildSelect>
         </methods>
-    </formfield>
-    <formfield>
-        <label></label>
-        <type>ImageGoogleBooks</type>
-        <id>largeImageDisplay</id>
-        <valueXpath>LargeImageUrl</valueXpath>
-        <methods>
-        	<setHeight>184</setHeight>
-        	<setWidth>120</setWidth>
-        </methods>
-        <labelInline/>
-        <nobreak/>
     </formfield>
     <formfield>
         <label>Reference Type</label>

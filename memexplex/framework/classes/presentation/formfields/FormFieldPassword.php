@@ -37,6 +37,7 @@ implements FormFieldInterface
             . " type=\"password\""
             . " name=\"{$this->id}\""
             . " id=\"{$this->id}\""
+            . " placeholder\"{$this->label}\""
             . " value=\"{$this->defaultValue}\""
             . " size=\"{$this->size}\""
             . " maxlength=\"{$this->maxlength}\""

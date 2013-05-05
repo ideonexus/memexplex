@@ -119,11 +119,11 @@ implements FormFieldInterface
         $date = "";
         if
         (
-            (string) $formData->Date != ""
-            && (string) $formData->Date != "0000-00-00 00:00:00"
+            (string) $formData->ReferenceDate != ""
+            && (string) $formData->ReferenceDate != "0000-00-00 00:00:00"
         )
         {
-            $date = "(" . $formData->Date . ")";
+            $date = "(" . $formData->ReferenceDate . ")";
         }
 
         $title = "";
@@ -164,11 +164,11 @@ implements FormFieldInterface
         $dateRetrieved = "";
         if
         (
-            (string) $formData->Date != ""
-            && (string) $formData->Date != "0000-00-00 00:00:00"
+            (string) $formData->DateRetrieved != ""
+            && (string) $formData->DateRetrieved != "0000-00-00 00:00:00"
         )
         {
-            $dateRetrieved = ", Retrieved on " . $formData->DateRetrieved;
+            $dateRetrieved = ", Retrieved on " . str_replace(' 00:00:00','',$formData->DateRetrieved);
         }
 
         $url = "";
@@ -205,7 +205,7 @@ implements FormFieldInterface
         	$referenceSuperTypeDescription
             . $referenceTypeDescription
             . $authors
-            . $date
+            . " " . $date
             . $titleEmOpen . $title . $titleEmClose
             . $publisherPeriodical
             . $volumePages

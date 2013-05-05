@@ -49,6 +49,7 @@ implements PageObjectsInterface
             if ($this->searchParameters->getUid())
             {
                 $punpOpts = "
+		<option><value>all</value><description>All</description></option>
 		<option><value>published</value><description>Published</description></option>
 		<option><value>unpublished</value><description>Unpublished</description></option>";
             }
@@ -58,6 +59,7 @@ implements PageObjectsInterface
 "
 <Filters>
 	<SearchFilter>$punpOpts
+		<option><value>all</value><description>All</description></option>
 		<option><value>published</value><description>Published</description></option>
 		<option><value>unpublished</value><description>Unpublished</description></option>
 		<option><value>childless</value><description>Memeless</description></option>

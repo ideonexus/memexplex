@@ -125,27 +125,6 @@ class MenuApplication extends Html
                  )
             )
             {
-                case 'ASP':
-                    //SET TO MENUFORM SUBMIT TO MAINTAIN CURATOR SESSION
-                    $childLink = "javascript:MenuFormSubmit('"
-                                 . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
-                                 . "PhpAsp/"
-                                 . "','menuNavigation','"
-                                 . SimpleXml::getSimpleXmlItem
-                                   (
-                                        $menuArray
-                                        ,'menuItem'
-                                        .   '/childMenuItem'
-                                        .       '/childChildMenuItem'
-                                        .       '['
-                                        .           'pagecode='
-                                        .           '\'' . PageConfiguration::getCurrentPageCode() . '\''
-                                        .       ']'
-                                        .   '/parent::*'
-                                        .       '/link'
-                                     )
-                                 . "')";
-                    break;
                 case 'PHP':
                     $childLink = ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                                  . SimpleXml::getSimpleXmlItem
@@ -271,6 +250,7 @@ class MenuApplication extends Html
                 $divider = "";
                 $pageCodeFound = false;
                 $this->source = "\n<!-- BEGIN MENU INCLUDE -->\n"
+                								. "<div class=\"mainMenu\">"
                                  . "<ul id=\"menu\">";
                 $secondLevelMenu = "";
 
@@ -284,7 +264,7 @@ class MenuApplication extends Html
                     {
                         $icon = 
                         	'<img src="'.ROOT_FOLDER.'framework/images/'
-                            .$menuItem->icon.'" width="13" height="13" border="0"/>&nbsp;';
+                            .$menuItem->icon.'" class="menuIcon'.$label.'" /><br/>';
                     }
                     
                     if($menuItem->childMenuItem != ''
@@ -296,18 +276,20 @@ class MenuApplication extends Html
                         $onclick     = " onclick=\"unlockMenu('menu_"
                                        . str_replace(' ','_',$menuItem->label)
                                        . "');\"";
-                        $onmouseover = " onmouseover=\"openDropdown('menu_"
+                        $onmouseover = " onmouseover=\""
+                        							 . "openDropdown('menu_"
                                        . str_replace(' ','_',$menuItem->label)
                                        . "');\"";
                         $onmouseout  = " onmouseout=\"closeDropdownTimeOut();\"";
 
                         // BUILD SECOND-LEVEL, DIV-HIDDEN MENU ITEMS
                         $secondLevelDivider = "";  //"<b>" . $menuItem->label . " Menu:</b> ";
-                        $secondLevelMenu .= "<br /><div id=\"menu_"
+                        $secondLevelMenu .= "<div id=\"menu_"
                                             . str_replace(' ','_', $menuItem->label)
                                             . "\""
                                             . " onmouseover=\"cancelCloseDropdownTimeOut()\""
                                             . " onmouseout=\"closeDropdownTimeOut()\""
+                                            . " class=\"menuSubDiv\""
                                             . ">";
                                             //. " style=\"display: none;\">";
 
@@ -385,16 +367,19 @@ class MenuApplication extends Html
                         }
                     }
 
-                    $align = "";
+                    $align = ">";
+                    $liDivOpen = "<li";
+                    $liDivClose = "</li>";
+                    $divider = "";
                     if
                     (
                         $menuItem->label == 'Login'
                         || $menuItem->label == 'Sign Up'
                         || $menuItem->label == 'Logout'
+                        || $menuItem->label == 'My Account'
                     )
                     {
-                        $align = " style=\"float:right;\"";
-                        $divider = "";
+                        
                         if (ApplicationSession::isNameSet('CURATOR_DISPLAY_NAME'))
                         {
                             if ($menuItem->label == 'Sign Up'
@@ -404,32 +389,52 @@ class MenuApplication extends Html
                             }
                             elseif ($menuItem->label == 'Logout')
                             {
-                                $divider = "Greetings, " . ApplicationSession::getValue('CURATOR_DISPLAY_NAME') . "&nbsp;/&nbsp;";
+                            	  $liDivOpen = "";
+                            	  $align = "";
+                            	  $divider = '&nbsp;/&nbsp;';
+                            	  $liDivClose = "</div>";
+                                //$divider = "Greetings, " . ApplicationSession::getValue('CURATOR_DISPLAY_NAME') . "&nbsp;/&nbsp;";
+                            }
+                            elseif ($menuItem->label == 'My Account')
+                            {
+                            	  $liDivOpen = "</ul><div";
+                                $align = " class=\"menuFloat\">";
+                                $liDivClose = "";
                             }
                         }
                         else
                         {
-                            if ($menuItem->label == 'Sign Up')
-                            {
-                                $divider = "&nbsp;/&nbsp;";
-                            }
-                            elseif ($menuItem->label == 'Logout')
+                            if ($menuItem->label == 'Logout'
+                                || $menuItem->label == 'My Account')
                             {
                                 $link = '';
+                            }
+                            elseif ($menuItem->label == 'Sign Up')
+                            {
+                            	  $liDivOpen = "";
+                                $align = "";
+                            	  $divider = "&nbsp;/&nbsp;";
+                            	  $liDivClose = "</div>";
+                            }
+                            elseif ($menuItem->label == 'Login')
+                            {
+                            	  $liDivOpen = "</ul><div";
+                                $align = " class=\"menuFloat\">";
+                                $liDivClose = "";
                             }
                         }
                     }
 
                     if ($link != '')
                     {
-                        $this->source .= "<li" . $align . ">" . $spanOpen . $divider . $spanClose . "<a href=\"" . $link
+                        $this->source .= $liDivOpen . $align . $spanOpen . $divider . $spanClose . "<a href=\"" . $link
                         . "\"" . $onclick . $onmouseout . $onmouseover . $target . $name . $id . ">" 
                         . $icon
                         . $label
                         . "</a>"
-                        . $secondLevelMenu . "</li>";
+                        . $secondLevelMenu . $liDivClose;
 
-                        $divider = "&nbsp;|&nbsp;";
+                        //$divider = "&nbsp;|&nbsp;";
                     }
                 }
 
@@ -438,12 +443,12 @@ class MenuApplication extends Html
 
             //$this->buildBreadCrumb($menuArray);
 
-            $this->source .= "</ul><br />";
+            $this->source .= "</div>";
             //$this->source .= $this->breadCrumb;
             //$this->source .= MenuMemexPlexBreadcrumb::buildBreadCrumb($menuArray);
-            $this->source .= "<br />";
+            //$this->source .= "<br />";
             $this->source .= "<iframe id=\"divframe\" src=\"\" class=\"frmcls\"></iframe>"
-                           . "<form name=\"frmMenu\" action=\"\" method=\"post\">"
+                           . "<form id=\"frmMenu\" name=\"frmMenu\" action=\"\" method=\"post\">"
                            . "<input type=\"hidden\" name=\"hidParam1\" value=\"\" />"
                            . "<input type=\"hidden\" name=\"hidParam2\" value=\"\" />"
                            . "<input type=\"hidden\" name=\"hidParam3\" value=\"\" />"

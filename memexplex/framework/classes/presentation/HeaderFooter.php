@@ -112,6 +112,22 @@ class HeaderFooter extends Html
         ."</script>";
          }
 
+         //GOOGLE ANALYTICS CODE (DO NOT PROMOTE)
+         $this->source .= "
+<script type=\"text/javascript\">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-3887525-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>";
+
         $this->source .=
 '</head><body>';
         
@@ -139,23 +155,31 @@ class HeaderFooter extends Html
             if ($mxplxObjectText)
             {
                 $mxplxObjectImage = '<img src="'
-                    .ROOT_FOLDER . 'framework/images/'.$mxplxObjectText.'_large.png"'
-                    .' id="taglineimage" width="50" height="50" alt="'.$mxplxObjectText.'" />';
+                    .ROOT_FOLDER . 'framework/images/'.$mxplxObjectText.'.png"'
+                    .' id="taglineimage" class="'.$mxplxObjectText.'TagLineImage" alt="'.$mxplxObjectText.'" />';
             }
         }
         
         
         if ('none' != PageConfiguration::getCurrentPageHeader())
         {
+        	  $menu = new MenuApplication();
+        	  $menu->setSource();
+        	  
             $this->source .=
 '<div id="mainbody">'
-    .'<div id="header">'
+    .'<div id="header" class="'.$mxplxObjectText.'">'
         .'<a href="'. ROOT_FOLDER . 'MemeList/" id="headerimage">'
-            .'<img src="'
-            .    ROOT_FOLDER . 'framework/images/memexplexlogo.jpg" width="257" height="50" alt="MemexPlex" />'
+            //.'<img src="'
+            //.    ROOT_FOLDER . 'framework/images/memexplexlogo.jpg" width="257" height="50" alt="MemexPlex" />'   
+            . 'mxplx'
         .'</a>'
-        .'<span id="tagline">'.self::$headerDisplay.$mxplxObjectImage.'</span>'
-    .'<br/><br/></div>'
+        .$menu->getSource()
+        .'<div id="tagline">'
+        		.self::$headerDisplay
+        		//.$mxplxObjectImage
+        .'</div>'
+    .'</div>'
     .'<div id="content">';
         }
         else 
@@ -177,12 +201,13 @@ class HeaderFooter extends Html
         {
             $this->source .=
     '</div>' //closes content
-    .'<div id="footer"><hr />'
-    .'<a href="http://www.memexplex.org">About MemexPlex</a>'
+    .'<div id="footer">'
+    .'<a href="http://www.memexplex.org">About</a>'
     .' | <a href="http://www.memexplex.org/credits/">Credits</a>'
     .' | <a href="http://www.memexplex.org/the-four-laws-of-memexplex/">The Four Laws</a>'
     .' | <a href="http://www.memexplex.org/download/">Downloads</a>'
-    .' | <a href="http://code.google.com/p/memexplex/">Project@GoogleCode</a>'
+    .' | <a href="http://code.google.com/p/memexplex/">GoogleCode</a>'
+    .' | <a href="https://github.com/ideonexus/memexplex">GitHub</a>'
     .'</div>';
         }
         $this->source .=

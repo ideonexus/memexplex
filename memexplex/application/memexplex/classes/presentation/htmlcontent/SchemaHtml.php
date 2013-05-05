@@ -132,6 +132,7 @@ class SchemaHtml
             $datePublished = null;
             $rightExpandDiv = '<div class="expandButton">';
             $rightExpandDivClose = "";
+            $rightExpandDivAssociate = "";
             //LOOP THOUGH FORM ELEMENTS
             foreach($formArray->SchemaListTable->formfield as $formfield)
             {
@@ -155,18 +156,18 @@ class SchemaHtml
                             {
                                 $by = $datePublishedSource."&nbsp;by&nbsp;";
                             }
-                            $listSource .= '<span style="float:right;">'
-                                .$by.$htmlFormField->getSource(true)."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$by.$htmlFormField->getSource(true)."</div>";
                         }
                         elseif ($datePublished)
                         {
-                            $listSource .= '<span style="float:right;">'
-                                .$datePublishedSource."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$datePublishedSource."</div>";
                         }
                         break;
                     case "Title":
                         $listSource .= 
-                            '<h2><img src="'.ROOT_FOLDER.'framework/images/schema.gif" width="13" height="13" border="0"/>' 
+                            '<h2><img src="'.ROOT_FOLDER.'framework/images/schema.png" class="schemaListIcon"/>' 
                         	."&nbsp;".$htmlFormField->getSource(true)."</h2>";
                         break;
                     case "Description":
@@ -176,19 +177,22 @@ class SchemaHtml
                         $source = $htmlFormField->getSource(true);
                         if (trim($source) != "None")
                         {
-                            $listSource .= "<br/><div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
+                            $listSource .= "<div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
+                            //An invislbe placeholder div for absolute-positioned folksonomies.
+                            $listSource .= "<div class=\"folksonomiesHeight\"><b>Folksonomies:</b> ".$source."</div>";
                         }
-                        if ($memeId || $parentSchemaId)
+                        break;
+                    case "MemeCount":
+                    case "SchemaCount":
+                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
+                        
+                        //Associate/Disassociate Button
+                        if (($memeId || $parentSchemaId) && $rightExpandDivAssociate == "")
                         {
                             $dis = "";
                             if (!$modal)
                             {
                                 $dis = "dis";
-                            }
-                            
-                            if (trim($source) == "None")
-                            {
-                                $listSource .= "&nbsp;";
                             }
                             
                             if ($memeId)
@@ -200,8 +204,8 @@ class SchemaHtml
                                 $parentId = "&parentschemaid=".$parentSchemaId;
                             }
                             
-                            $listSource .= "<span style=\"float:right;position:relative;right:-5px;top:-20px;\">"
-                            	."<a href=\"javascript:void(0)\""
+                            $rightExpandDivAssociate = 
+                            	"<a href=\"javascript:void(0)\""
                             	." class=\"menulink\""
                             	." onClick=\""
                             	."getContent('"
@@ -216,13 +220,9 @@ class SchemaHtml
                                 . $rowdata->Id
                             	."','processFormCallback'"
                             	.");"
-                            	."\">{$dis}associate</a>"
-                            	."</span>";
+                            	."\">{$dis}associate</a>";
                         }
-                        break;
-                    case "MemeCount":
-                    case "SchemaCount":
-                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
+
                         $rightExpandDiv = "";
                         $rightExpandDivClose = "</div>";
                         break;
@@ -230,7 +230,7 @@ class SchemaHtml
                         $listSource .= $htmlFormField->getSource(true);
                 }
             }
-            $listSource .= $rightExpandDivClose."</div>";
+            $listSource .= $rightExpandDivAssociate.$rightExpandDivClose."</div>";
         }
         return $listSource;
     }

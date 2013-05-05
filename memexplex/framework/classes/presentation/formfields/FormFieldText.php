@@ -55,6 +55,7 @@ implements FormFieldInterface
                          ."\""
                          . " size=\"{$this->size}\""
                          . " title=\"Enter {$this->label}\""
+                         . " placeholder=\"{$this->label}\""
                          . " maxlength=\"{$this->maxlength}\""
                          . " disabled=\"disabled\""
                          . " />";

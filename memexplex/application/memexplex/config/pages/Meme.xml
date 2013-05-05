@@ -15,18 +15,18 @@
         <form>
             <id>frmEditMeme</id>
             <formfield>
-                <type>ConditionalButtonDelete</type>
-                <id>btnSave</id>
-                <methods>
-                	<setForm>frmEditMeme</setForm>
-                    <setConfirmation>Meme</setConfirmation>
-                </methods>
-            </formfield>
-            <formfield>
                 <type>ButtonSave</type>
                 <id>btnSave</id>
                 <methods>
                     <setOnClickJavaScript>FormValidation('frmEditMeme');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+            <formfield>
+                <type>ConditionalButtonDelete</type>
+                <id>btnDelete</id>
+                <methods>
+                	<setForm>frmEditMeme</setForm>
+                    <setConfirmation>Meme</setConfirmation>
                 </methods>
             </formfield>
         </form>

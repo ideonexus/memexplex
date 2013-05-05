@@ -15,18 +15,18 @@
         <form>
             <id>frmEditTriple</id>
             <formfield>
-                <type>ConditionalButtonDelete</type>
-                <id>btnSave</id>
-                <methods>
-                	<setForm>frmEditTriple</setForm>
-                    <setConfirmation>Triple</setConfirmation>
-                </methods>
-            </formfield>
-            <formfield>
                 <type>ButtonSave</type>
                 <id>btnSave</id>
                 <methods>
                     <setOnClickJavaScript>FormValidation('frmEditTriple');</setOnClickJavaScript>
+                </methods>
+            </formfield>
+            <formfield>
+                <type>ConditionalButtonDelete</type>
+                <id>btnDelete</id>
+                <methods>
+                	<setForm>frmEditTriple</setForm>
+                    <setConfirmation>Triple</setConfirmation>
                 </methods>
             </formfield>
         </form>

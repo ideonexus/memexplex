@@ -82,7 +82,6 @@ implements HtmlContentInterface
                     '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
                 	. '<div class="pagination">'
                 	. '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeModal/'
@@ -92,7 +91,6 @@ implements HtmlContentInterface
                     . 'Add New Meme'
                 	. '</a>'
                     . '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeListModal/'
@@ -101,8 +99,9 @@ implements HtmlContentInterface
                     . '&searchFilter=orphaned">'
                     . 'Add Orphan Meme'
                 	. '</a>'
+                	. '</div>'
+                	. '<div class="pagination">'
                 	. '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'ReferenceModal/'
@@ -112,7 +111,6 @@ implements HtmlContentInterface
                     . 'Add New Child Reference'
                 	. '</a>'
                     . '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'ReferenceListModal/'
@@ -272,7 +270,6 @@ implements HtmlContentInterface
                             '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
                         	. '<div class="pagination">'
                         	. '<a class="submodal-600-525"'
-                        	.' style="display:none;"'
                         	.' href="'
                             . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                             . 'GoogleBooksSearch/'
@@ -297,7 +294,7 @@ implements HtmlContentInterface
                         )
                         . $childReferenceSource
                         . $parentReferenceSource
-                        ,'<table class="layout"><tr><td>'.$Form->getSource().$amazonLink.'</td></tr></table>'
+                        ,$Form->getSource().$amazonLink
                     );
                     $this->source = $htmlViewEditContent->getSource();
                 }
@@ -313,17 +310,16 @@ implements HtmlContentInterface
                         $modalSource =
                             '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
                         	. '<div class="pagination">'
-                        	. '<a class="submodal-600-525"'
-                        	.' style="display:none;"'
-                        	.' href="'
-                            . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
-                            . 'GoogleBooksSearch/'
-                            . '">'
-                            . 'Search Google Books for References'
-                        	. '</a>'
-                        	. '</div><br/><br/>';
+                        	//. '<a class="submodal-600-525"'
+                        	//.' href="'
+                          //  . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
+                          //  . 'GoogleBooksSearch/'
+                          //  . '">'
+                          //  . 'Search Google Books for References'
+                        	//. '</a>'
+                        	. '</div>';
                     }
-                    $this->source = '<table class="layout"><tr><td>'.$Form->getSource().'</td></tr></table>'.$modalSource;
+                    $this->source = $Form->getSource().$modalSource;
                 }
             }
             else

@@ -45,9 +45,9 @@ implements HtmlContentInterface
         $Form->buildForm();
 
         $this->source =
-            '<div align="center"><table class="layout"><tr><td>'
+            '<div align="center">'
             .$Form->getSource()
-            .'</td></tr></table></div>';
+            .'</div>';
     }
 
 }

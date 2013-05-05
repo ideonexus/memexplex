@@ -63,19 +63,19 @@ implements HtmlContentInterface
             $Form->buildForm();
     
             $this->source =
-                '<div align="center"><table class="layout"><tr><td>'
+                '<div align="center">'
                 .$Form->getSource()
-                .'</td></tr></table></div>';
+                .'</div>';
         }
         else
         {
             $this->source =
-                '<div align="center"><table class="layout"><tr><td>'
+                '<div align="center">'
                 .'<br/><br/>'
                 .'<p class="largeBlue">'
                 .'You must be logged in or visiting this page<br/>from an emailed link for it to display.'
                 .'</p>'
-                .'</td></tr></table></div>';
+                .'</div>';
         }
     }
 

@@ -103,6 +103,7 @@ implements FormFieldInterface
                          . " value=\"{$this->taxonomyString}\""
                          . " size=\"{$this->size}\""
                          . " title=\"Enter Taxonomies separated by commas.\""
+                         . " placeholder=\"Enter Taxonomies separated by commas.\""
                          . " maxlength=\"{$this->maxlength}\""
                          . " disabled=\"disabled\""
                          . " />";

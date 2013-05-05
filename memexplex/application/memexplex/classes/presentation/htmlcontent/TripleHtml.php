@@ -83,7 +83,6 @@ class TripleHtml
                 $TripleDisplay =
                     '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
                 	. '<a class="submodal-600-525"'
-                	.' style="display:none;"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'TripleModal/'
@@ -170,18 +169,18 @@ class TripleHtml
                             {
                                 $by = $datePublishedSource."&nbsp;by&nbsp;";
                             }
-                            $listSource .= '<span style="float:right;">'
-                                .$by.$htmlFormField->getSource(true)."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$by.$htmlFormField->getSource(true)."</div>";
                         }
                         elseif ($datePublished)
                         {
-                            $listSource .= '<span style="float:right;">'
-                                .$datePublishedSource."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$datePublishedSource."</div>";
                         }
                         break;
                     case "Title":
                         $listSource .= 
-                            '<h2><img src="'.ROOT_FOLDER.'framework/images/triple.gif" width="15" height="13" border="0"/>' 
+                            '<h2><img src="'.ROOT_FOLDER.'framework/images/triple.png" class="tripleListIcon" />' 
                         	."&nbsp;".$htmlFormField->getSource(true)."</h2>";
                         break;
                     case "Description":
@@ -200,7 +199,9 @@ class TripleHtml
                         $source = $htmlFormField->getSource(true);
                         if (trim($source) != "None")
                         {
-                            $listSource .= "<br/><b>Folksonomies:</b> ".$source;
+                            $listSource .= "<div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
+                            //An invislbe placeholder div for absolute-positioned folksonomies.
+                            $listSource .= "<div class=\"folksonomiesHeight\"><b>Folksonomies:</b> ".$source."</div>";
                         }
                         break;
                     default:

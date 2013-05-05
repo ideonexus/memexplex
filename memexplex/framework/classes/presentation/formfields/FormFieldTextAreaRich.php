@@ -63,6 +63,19 @@ addLoadEvent(function() {
 	});
 });
 
+function {$this->id}toggleTinyMCE() {
+	if ($("{$this->id}tinyMCEToggle").innerHTML == "HTML Editor")
+	{
+			{$this->id}activateTinyMCE()
+			$("{$this->id}tinyMCEToggle").innerHTML = "Plain Text";
+	}
+	else
+	{
+			tinyMCE.get('{$this->id}').hide();
+			$("{$this->id}tinyMCEToggle").innerHTML = "HTML Editor";
+	}
+}
+
 function {$this->id}activateTinyMCE() {
 	if (tinyMCE.getInstanceById('{$this->id}')){
     	tinyMCE.get('{$this->id}').show();
@@ -96,7 +109,6 @@ addLoadEvent(function() {
 </script>
 EOD;
 
-        $wysiwygWidth = $this->cols * 8.3;
         $textareaValue = $this->defaultValue;
 
         //FUNCTION REMOVES TINYMCE CONTROL ON SUCCESSFUL FORM
@@ -107,12 +119,11 @@ EOD;
 <div>
 	<!-- Gets replaced with TinyMCE, remember HTML in a textarea should be encoded -->
 	<div>
-		<textarea id="{$this->id}" name="{$this->id}" rows="{$this->rows}" cols="{$this->cols}" style="width: {$wysiwygWidth}px;">{$textareaValue}</textarea>
+		<textarea placeholder="Enter {$this->label} text or toggle for HTML editor." id="{$this->id}" name="{$this->id}" rows="{$this->rows}" cols="{$this->cols}">{$textareaValue}</textarea>
 	</div>
 
 	<!-- Some integration calls -->
-	<a href="javascript:void(0);" onmousedown="{$this->id}activateTinyMCE()">HTML Editor</a>
-	/ <a href="javascript:void(0);" onmousedown="tinyMCE.get('{$this->id}').hide();">Plain Text</a>
+	<a id="{$this->id}tinyMCEToggle" href="javascript:void(0);" onmousedown="{$this->id}toggleTinyMCE();" class="menulink">HTML Editor</a>
 </div>
 EOD;
 

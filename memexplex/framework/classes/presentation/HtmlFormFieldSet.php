@@ -286,13 +286,10 @@ class HtmlFormFieldSet
     public function getSectionBreak()
     {
         return
-            "<table class=\"layout\">"
-            .  "<tr>"
-            .    "<td><b>{$this->fieldSetTitle}:</b></td>"
-            .    "<td width=\"100%\"><hr /></td>"
+            "<div class=\"formlayout\">"
+            .    "<b>{$this->fieldSetTitle}:</b>"
             .    $this->sectionBreakAppend
-            .  "</tr>"
-            ."</table>";
+            ."</div>";
     }
 
     /**

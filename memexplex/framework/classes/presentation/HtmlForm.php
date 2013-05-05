@@ -159,14 +159,12 @@ class HtmlForm
                 if ($this->formTableTop != "")
                 {
                     $this->formTableTop .=
-                         "</tr>"
-                    ."</table>";
+                         "</div>";
                 }
                 if ($this->formTableBottom != "")
                 {
                     $this->formTableBottom .=
-                         "</tr>"
-                    ."</table>";
+                         "</div>";
                 }
                 $this->formTop .= $this->formTableTop
                                   . $this->formBottom
@@ -231,34 +229,24 @@ class HtmlForm
                         if ($this->formTableBottom == "")
                         {
                             $this->formTableBottom =
-                    "<table class=\"layout\" style=\"width:100%;\">"
-                    .    "<tr>"
-                    .        "<td width=\"100%\">&nbsp</td>";
+                    "<div class=\"formlayout\">";
                         }
 
-                        $this->formTableBottom .= "<td"
-                        . ">&nbsp;"
-                        . $htmlFormField->getSource()
-                        . "&nbsp;</td>"
-                        . "</tr></table>"
-                        . "<table class=\"layout\" style=\"width:100%;\">"
-                        .     "<tr>"
-                        .         "<td width=\"100%\">&nbsp</td>";
+                        $this->formTableBottom .= 
+                        $htmlFormField->getSource()
+                        . "</div>"
+                        . "<div class=\"formlayout\">";
                     }
                     else
                     {
                         if ($this->formTableBottom == "")
                         {
                             $this->formTableBottom =
-                    "<table class=\"layout\" style=\"width:100%;\">"
-                    .    "<tr>"
-                    .        "<td width=\"100%\">&nbsp</td>";
+                    "<div class=\"formlayout\" >";
                         }
 
-                        $this->formTableBottom .= "<td"
-                                 . ">&nbsp;"
-                                 . $htmlFormField->getSource()
-                                 . "&nbsp;</td>";
+                        $this->formTableBottom .= 
+                                 $htmlFormField->getSource();
                     }
                 }
                 else
@@ -275,8 +263,7 @@ class HtmlForm
         if ($this->formTableTop != "")
         {
             $this->formTableTop .=
-                 "<td width=\"100%\"></td></tr>"
-            ."</table>";
+                 "</div>";
         }
 
         $this->formTop .= $this->formTableTop;
@@ -285,8 +272,7 @@ class HtmlForm
         if ($this->formTableBottom != "")
         {
             $this->formTableBottom .=
-                 "</tr>"
-            ."</table>";
+                 "</div>";
         }
 
         $this->formBottom .= $this->formTableBottom . "</form>";
@@ -308,7 +294,7 @@ class HtmlForm
                . $this->formTop
                . $this->formContent
                . $this->formBottom
-               . "</div><br/>";
+               . "</div>";
     }
 
     /**

@@ -46,9 +46,9 @@ function expandQuote(quoteid){
 	
 	if (lastQuoteExpanded != quoteid){
 		$(show).style.display = 'block';
-		//showHt = $(show).offsetHeight;
-		//$(show).style.height = '0px';
-		//showItem();
+		showHt = $(show).offsetHeight;
+		$(show).style.height = '0px';
+		showItem();
 		$('expand'+quoteid).innerHTML = 'collapse';
 		lastQuoteExpanded = quoteid;
 	}

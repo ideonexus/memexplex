@@ -101,7 +101,6 @@ implements HtmlContentInterface
                     {
                         $associateLinks .=
                         	'<a class="submodal-600-525"'
-                        	.' style="display:none;"'
                         	.' href="'
                             . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                             . 'ReferenceModal/'
@@ -111,7 +110,6 @@ implements HtmlContentInterface
                             . 'Add New Reference'
                         	. '</a>'
                             . '<a class="submodal-600-525"'
-                            .' style="display:none;"'
                             .' href="'
                             . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                             . 'ReferenceListModal/'
@@ -119,12 +117,13 @@ implements HtmlContentInterface
                             . $searchParameters->getId()
                             . '">'
                             . 'Add Existing Reference'
-                        	. '</a>';
+                        	. '</a>'
+                        	. '</div>'
+                        	. '<div class="pagination">';
                     }
                     
                     $associateLinks .=
                     	'<a class="submodal-600-525"'
-                    	.' style="display:none;"'
                     	.' href="'
                         . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                         . 'SchemaModal/'
@@ -134,7 +133,6 @@ implements HtmlContentInterface
                         . 'Add to New Schema'
                     	. '</a>'
                         . '<a class="submodal-600-525"'
-                    	.' style="display:none;"'
                     	.' href="'
                         . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                         . 'SchemaListModal/'
@@ -143,7 +141,7 @@ implements HtmlContentInterface
                         . '">'
                         . 'Add to Existing Schema'
                     	. '</a>'
-                        .'</div><br/>';
+                        .'</div>';
                         
                     JavaScript::addJavaScriptInclude("subModal");
                     CascadingStyleSheets::addCascadingStyleSheetsInclude("subModal");

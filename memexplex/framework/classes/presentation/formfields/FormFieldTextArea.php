@@ -51,10 +51,12 @@ implements FormFieldInterface
         $this->source .=  '<textarea'
         				. ' rows="' . $this->rows .'"'
         				. ' cols="' . $this->cols . '"'
-                        . ' name="' . $this->id . '"'
-                        . ' id="' . $this->id . '">'
-                        . $textareaValue
-                        . "</textarea>";
+                . ' name="' . $this->id . '"'
+                . ' title="Enter ' . $this->label . '"'
+                . ' placeholder="Enter ' . $this->label . ' text."'
+                . ' id="' . $this->id . '">'
+                . $textareaValue
+                . "</textarea>";
     }
 
 }

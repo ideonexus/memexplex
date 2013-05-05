@@ -125,8 +125,7 @@ function populateReference(index)
     var largeImageUrl = $('largeImageUrl'+index).value.replace('&edge=curl','');
 	parent.$('largeImageDisplay').innerHTML = '<img'
         +' src="'+largeImageUrl.replace('zoom=5','zoom=1')+'"'
-        +' height="184"'
-        +' width="120"'
+        +' class="googleBookDisplayImage"'
         +' />';
 
 	if (parent.$('referenceTitle').value == "")

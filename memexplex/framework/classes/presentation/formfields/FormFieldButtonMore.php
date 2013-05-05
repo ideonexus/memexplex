@@ -124,20 +124,18 @@ implements FormFieldInterface
 
         if ($this->imageSource == "")
         {
-            $this->imageSource = " src=\"" . ROOT_FOLDER . "framework/images/but_more.gif\"";
+            $this->imageSource = " src=\"" . ROOT_FOLDER . "framework/images/add-button.png\"";
         }
 
         $this->source .=
-            "<div style=\"width:100%;text-align:right;\" id=\"{$this->id}\">"
+            "<div class=\"moreButtonDiv\" id=\"{$this->id}\">"
                 . "<a href=\""
                 . $this->hrefTag
                 . "\">"
                     . "<img"
                     . $this->imageSource
                     . $this->altTag
-                    . " align=\"center\""
-                    . " border=\"0\""
-                    . " height=\"13\""
+                    . " class=\"moreButton\""
                     . " />"
                 . "</a>"
             . "</div>"

@@ -207,17 +207,13 @@ class HtmlFormBlock
         if ($includeDiv)
         {
             return
-                "<table class=\"layout\" width=\"100%\">"
-                .  "<tr>"
-                .    "<td><b>{$this->blockTitle}:"
+                "<div class=\"formlayout\">"
+                .  "<b>{$this->blockTitle}:"
                 .    "<a class=\"noLink\" name=\"{$this->blockId}AnchorEdit\"></a>"
-                .    "</b></td>"
-                .    "<td width=\"100%\"><hr /></td>"
+                .    "</b>"
                 .    $this->sectionBreakAppendEdit
-                .  "</tr>"
-                ."</table>"
-                ."<div"
-                .    " id=\"{$this->blockId}BlockEdit\">"
+                ."</div>"
+                ."<div id=\"{$this->blockId}BlockEdit\">"
                 .    $this->blockSource
                 ."</div>";
         }
@@ -235,13 +231,10 @@ class HtmlFormBlock
     public function getSectionBreak()
     {
         return
-            "<table class=\"layout\">"
-            .  "<tr>"
-            .    "<td><b>{$this->blockTitle}:</b></td>"
-            .    "<td width=\"100%\"><hr /></td>"
+            "<div class=\"formlayout\">"
+            .    "<b>{$this->blockTitle}:</b>"
             .    $this->sectionBreakAppend
-            .  "</tr>"
-            ."</table>";
+            ."</div>";
     }
 
     /**
@@ -299,6 +292,6 @@ class HtmlFormBlock
      */
     public function setSectionBreakAppend($text = '')
     {
-        $this->sectionBreakAppend .= "<td><b>$text</b></td>";
+        $this->sectionBreakAppend .= "<b>$text</b>";
     }
 }

@@ -118,7 +118,7 @@ function initPopUp() {
 			'<div id="popupTitleBar">' +
 				'<div id="popupTitle"></div>' +
 				'<div id="popupControls">' +
-					'<img src="' + applicationRootFolder + 'framework/javascript/submodal/close.gif" onclick="hidePopWin(false);" id="popCloseBox" />' +
+					'<img src="' + applicationRootFolder + 'framework/javascript/submodal/close-button.png" onclick="hidePopWin(false);" id="popCloseBox" />' +
 				'</div>' +
 			'</div>' +
 			'<iframe src="'+ gDefaultPage +'" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" allowtransparency="true" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>' +

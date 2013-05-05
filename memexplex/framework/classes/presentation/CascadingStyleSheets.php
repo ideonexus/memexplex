@@ -161,7 +161,15 @@ class CascadingStyleSheets extends Html
                     .'height:100%;'
                 .'}'
                 .'</style>'
-                .'<![endif]-->';
+                .'<![endif]-->'
+                .'<!--[if lte IE 9]>'
+                .'<style type="text/css">'
+                .'label {'
+                    .'display:inline; !important'
+                .'}'
+                .'</style>'
+                .'<![endif]-->'
+                ;
                 
             foreach(self::$cascadingStyleSheetsIncludes as $style)
             {

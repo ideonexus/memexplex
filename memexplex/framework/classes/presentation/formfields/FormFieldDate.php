@@ -144,26 +144,26 @@ implements FormFieldInterface
                          . " id=\"{$this->id}\""
                          . " value=\"{$this->defaultValue}\""
                          . " size=\"8\""
-                         . " title=\"Enter Last Met Date\""
+                         . " title=\"Enter {$this->label}\""
+            						 . " placeholder=\"{$this->label}\""
                          . " maxlength=\"10\""
                          . " onkeydown=\"DateRoller(event,this,'{$this->defaultDate}')\""
                          . " disabled=\"disabled\""
-                         . " />"
-                         . "<a name=\"{$this->id}\""
-                         . " href=\"javascript:doNothing()\""
-                         . " onclick=\"setDefaultDate('{$this->defaultDate}');"
-                         . "setDateField($(this.name));"
-                         . "openCalendar('"
-                         . ApplicationSession::getValue('CURRENT_APPLICATION_DIRECTORY','all')
-                         . "');\">"
-                         . "<img src=\""
-                         . ROOT_FOLDER
-                         . "framework/images/calendar.gif\""
-                         . " width=\"16\""
-                         . " height=\"16\""
-                         . " border=\"0\""
-                         . " alt=\"Click to view calendar.\"></a>";
-
+                         . " />";
+//                         . "<a name=\"{$this->id}\""
+//                         . " href=\"javascript:doNothing()\""
+//                         . " onclick=\"setDefaultDate('{$this->defaultDate}');"
+//                         . "setDateField($(this.name));"
+//                         . "openCalendar('"
+//                         . ApplicationSession::getValue('CURRENT_APPLICATION_DIRECTORY','all')
+//                         . "');\">"
+//                         . "<img src=\""
+//                         . ROOT_FOLDER
+//                         . "framework/images/calendar.gif\""
+//                         . " width=\"16\""
+//                         . " height=\"16\""
+//                         . " border=\"0\""
+//                         . " alt=\"Click to view calendar.\"></a>";
     }
 
     /**
@@ -172,7 +172,10 @@ implements FormFieldInterface
     public function setJavaScriptValidation()
     {
 
-        $this->source .= "<script type=\"text/javascript\">";
+				//Uses datepickr: https://code.google.com/p/datepickr/wiki/Documentation
+        $this->source .= "<script type=\"text/javascript\">"
+            ."setTimeout('newDatePickr{$this->id}()',500);"
+            ."function newDatePickr{$this->id}() {new datepickr('{$this->id}',{ dateFormat: 'm/d/Y' });}";
         if (!defined("DATE_FIELD_TODAYS_DATE"))
         {
             $this->source .= "var todaysDate = '" . Time::getZuluDateFormFormat() . "';";
@@ -338,6 +341,7 @@ implements FormFieldInterface
         {
             //INCLUDE JAVASCRIPT DATE FUNCTIONS WHEN EDITABLE
             JavaScript::addJavaScriptInclude("dateFunctions");
+            JavaScript::addJavaScriptInclude("datepickr");
             return $this->source;
         }
     }

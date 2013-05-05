@@ -157,10 +157,12 @@ class MemeHtml
         //LOOP THROUGH ROWS
         foreach($setdata as $rowdata)
         {
-            $listSource .= "<div class=\"{$modalClass}memedivlistitem\">";
+            $listSource .= "<div class=\"{$modalClass}memedivlistitem\" id=\"meme{$rowdata->Id}\">";
             $datePublished = null;
             $rightExpandDiv = '<div class="expandButton">';
             $rightExpandDivClose = "";
+            $rightExpandDivAssociate = "";
+
             //LOOP THOUGH FORM ELEMENTS
             foreach($formArray->MemeListTable->formfield as $formfield)
             {
@@ -184,40 +186,43 @@ class MemeHtml
                             {
                                 $by = $datePublishedSource."&nbsp;by&nbsp;";
                             }
-                            $listSource .= '<span style="float:right;">'
-                                .$by.$htmlFormField->getSource(true)."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$by.$htmlFormField->getSource(true)."</div>";
                         }
                         elseif ($datePublished)
                         {
-                            $listSource .= '<span style="float:right;">'
-                                .$datePublishedSource."</span>";
+                            $listSource .= '<div class="divListItemDate">'
+                                .$datePublishedSource."</div>";
                         }
                         break;
                     case "Title":
                         $listSource .=
-                            '<h2><a name="meme'.$rowdata->Id.'" id="meme'.$rowdata->Id.'"></a><img src="'.ROOT_FOLDER.'framework/images/meme.gif" width="13" height="13" border="0"/>' 
+                          '<h2><img src="'.ROOT_FOLDER.'framework/images/meme.png" class="memeListIcon" />' 
                         	."&nbsp;".$htmlFormField->getSource(true)."</h2>".$removeLink;
                         break;
                     case "Summary":
                         $listSource .= $htmlFormField->getSource(true);
                         break;
                     case "Folksonomies":
-                        $source = $htmlFormField->getSource(true);
+                    		$source = $htmlFormField->getSource(true);
                         if (trim($source) != "None")
                         {
-                            $listSource .= "<br/><div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
+                            $listSource .= "<div class=\"folksonomies\"><b>Folksonomies:</b> ".$source."</div>";
+                            $listSource .= "<div class=\"folksonomiesHeight\"><b>Folksonomies:</b> ".$source."</div>";
                         }
-                        if ($referenceId || $schemaId)
+                        break;
+                    case "ReferenceCount":
+                    case "TripleCount":
+                    case "SchemaCount":
+                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
+                        
+                        //Associate/Disassociate Button
+                        if (($referenceId || $schemaId) && $rightExpandDivAssociate == "")
                         {
                             $dis = "";
                             if (!$modal)
                             {
                                 $dis = "dis";
-                            }
-                            
-                            if (trim($source) == "None")
-                            {
-                                $listSource .= "&nbsp;";
                             }
                             
                             if ($referenceId)
@@ -229,8 +234,8 @@ class MemeHtml
                                 $parentId = "&schemaid=".$schemaId;
                             }
                             
-                            $listSource .= "<span style=\"float:right;position:relative;right:-5px;top:-20px;\">"
-                            	."<a href=\"javascript:void(0)\""
+                            $rightExpandDivAssociate = 
+                              "<a href=\"javascript:void(0)\""
                             	." class=\"menulink\""
                             	." onClick=\""
                             	."getContent('"
@@ -245,14 +250,8 @@ class MemeHtml
                                 . $rowdata->Id
                             	."','processFormCallback'"
                             	.");"
-                            	."\">{$dis}associate</a>"
-                            	."</span>";
+                            	."\">{$dis}associate</a>";
                         }
-                        break;
-                    case "ReferenceCount":
-                    case "TripleCount":
-                    case "SchemaCount":
-                        $listSource .= $rightExpandDiv.$htmlFormField->getSource(true);
                         $rightExpandDiv = '';
                         $rightExpandDivClose = "</div>";
                         break;
@@ -260,7 +259,11 @@ class MemeHtml
                         $listSource .= "<a href=\"javascript:void(0);\" class=\"menulink\" id=\"expand{$rowdata->Id}\" onclick=\"expandQuote('{$rowdata->Id}');\">expand</a>";
                         break;
                     case "Quote":
-                        $listSource .= $rightExpandDivClose."</div><span class=\"quoteDisplay\" id=\"quote{$rowdata->Id}\"><div class=\"{$modalClass}memedivlistitemquote\">"
+                        $listSource .= 
+                          $rightExpandDivAssociate
+                          .$rightExpandDivClose
+                          ."</div>" //Close ListDiv
+                          ."<span class=\"quoteDisplay\" id=\"quote{$rowdata->Id}\"><div class=\"{$modalClass}memedivlistitemquote\">"
                         	.$htmlFormField->getSource(true) . "</div></span>";
                         break;
                     default:
