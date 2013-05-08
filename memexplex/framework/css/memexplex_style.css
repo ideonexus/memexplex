@@ -151,7 +151,7 @@ body {
 	left:20px;
 	top:3px;
 	color: #ffffff;
-	font-size:3.5em;
+	font-size:350%;
 	font-family:verdana,sans-serif;
 }
 
@@ -194,7 +194,7 @@ body {
 div.subMainMenu
 {
     background-color:#DADAFF;
-    border:.1em;
+    border:.10%;
     border-style:solid;
 }
 */
@@ -679,7 +679,7 @@ background-image: radial-gradient(circle farthest-corner at center, #FFFFFF 0%, 
 legend
 {
 	font-weight: bold;
-	font-size: 2em;
+	font-size: 200%;
 	background-color: #FFFFFF;
 	border: solid 1px;
 	padding: 5px 10px 5px 10px;
@@ -772,8 +772,8 @@ option:first
 
 label
 {
-		font-size:1.5em;
-    display:none;
+		font-size:75%;
+    /*display:none;*/
 }
 
 /* 
@@ -911,7 +911,7 @@ hr
 	border: 1px solid #000066;
 	padding:1px 5px 1px 5px;
 	font-weight:bold;
-	font-size:1.5em;
+	font-size:150%;
 	vertical-align:middle;
 	margin-left:3px;
     -webkit-border-radius: 4px;    /* for Safari */
@@ -1136,7 +1136,7 @@ input[id^="author"]
 
 .googleBookDisplayText
 {
-    font-size:1.8em;
+    font-size:180%;
     position:relative;
     top:50px;
     display:inline-block;
@@ -1266,7 +1266,7 @@ input[id^="author"]
 
 .calendar {
 	font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
-	font-size: 1.2em;
+	font-size: 120%;
 	background-color: #EEE;
 	color: #333;
 	border: 1px solid #DDD;
@@ -1325,7 +1325,7 @@ input[id^="author"]
 .calendar table {
 	border-collapse: collapse;
 	padding: 0;
-	font-size: 0.8em;
+	font-size: 80%;
 	width: 100%;
 }
 
@@ -1361,3 +1361,10 @@ input[id^="author"]
 	color: #0000FF;
 }
 
+@media only screen and (max-device-width: 480px) {
+	/*Make paging buttons bigger for mobile phones*/
+	.pagination a
+	{  
+			font-size:200%;
+	}
+}
