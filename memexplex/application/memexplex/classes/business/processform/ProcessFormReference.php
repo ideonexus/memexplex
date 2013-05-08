@@ -64,14 +64,23 @@ implements ProcessFormInterface
         	  	  ErrorCollection::addUserErrorMessage("referenceTitle", "Title is required.");
         	  }
         	  
+        	  if ($this->formValuesArray["referenceType"] == "")
+        	  {
+        	  	  ErrorCollection::addUserErrorMessage("referenceType", "Reference Type is required.");
+        	  }
+        	  
             $authorList = new AuthorList;
             for ($i=0;$i<($this->formValuesArray['hidAuthorsTableEditRowCount']+1);$i++)
             {
-                $authorList[] = new Author(
-                    $this->formValuesArray['authorId'.$i]
-                    ,trim($this->formValuesArray['authorFirstName'.$i])
-                    ,trim($this->formValuesArray['authorLastName'.$i])
-                );
+            	  if (trim($this->formValuesArray['authorLastName'.$i]) != ""
+            	    || trim($this->formValuesArray['authorFirstName'.$i]) != "")
+            	  {
+		                $authorList[] = new Author(
+		                    $this->formValuesArray['authorId'.$i]
+		                    ,trim($this->formValuesArray['authorFirstName'.$i])
+		                    ,trim($this->formValuesArray['authorLastName'.$i])
+		                );
+		            }
             }
             
             $taxonomyList = new TaxonomyList;
