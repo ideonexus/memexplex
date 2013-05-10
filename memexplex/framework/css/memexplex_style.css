@@ -374,7 +374,7 @@ div.subMainMenu
 /* IE10 Consumer Preview */ 
 background-image: -ms-radial-gradient(center, circle farthest-side, #FFFFFF 0%, #DDDDDD 100%);
 /* Mozilla Firefox */ 
-/*background-image: -moz-radial-gradient(center, circle farthest-side, #FFFFFF 0%, #DDDDDD 100%);*/
+background-image: -moz-radial-gradient(center, circle farthest-side, #FFFFFF 0%, #DDDDDD 100%);
 /* Opera */ 
 /*background-image: -o-radial-gradient(center, circle farthest-side, #FFFFFF 0%, #DDDDDD 100%);*/
 /* Webkit (Safari/Chrome 10) */ 
@@ -425,6 +425,10 @@ background-image: -webkit-gradient(linear, left top, right top, color-stop(1%,rg
 	border: 2px solid #00ffff; 
 }
 
+/*-----------------------------------------------------------------------
+------------------ BEGIN ANIMATED LIST ITEM BACKGROUNDS -------------------
+-------------------------------------------------------------------------*/
+
 .memedivlistitem:hover,
 .modalmemedivlistitem:hover,
 .referencedivlistitem:hover,
@@ -434,63 +438,101 @@ background-image: -webkit-gradient(linear, left top, right top, color-stop(1%,rg
 .tripledivlistitem:hover,
 .modaltripledivlistitem:hover
 {
+  background-image:none; 
 	-webkit-animation-direction: normal;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-iteration-count: infinite;
 	-webkit-animation-timing-function: ease;
 }
 
-@-webkit-keyframes memecolors {
-    10% {background-color: #ffffff;}
-    60% {background-color: #CCCCFF;}
-    100% {background-color: #ffffff;;}
+@keyframes memecolors /* IE and FF */
+{
+    10% {background-color: #ccccff;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ccccff;}
 }
+
+@-webkit-keyframes memecolors  /* Safari and Chrome */
+{
+    10% {background-color: #ccccff;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ccccff;}
+}
+
 .memedivlistitem:hover,
 .modalmemedivlistitem:hover
 {
-		-webkit-animation-name: memecolors;
-		background-image: -moz-linear-gradient(left, #000088 0%, #000033 15%, #000033 26%, #000066 48%, #0000AA 91%, #000088 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000088', endColorstr='#000088',GradientType=1 );
+	  background-color: #ccccff;
+		-webkit-animation-name: memecolors; /* Safari and Chrome */
+		animation: memecolors 2s infinite;
+}
+
+@keyframes referencecolors /* IE and FF */
+{
+    10% {background-color: #ffcccc;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ffcccc;}
 }
 
 @-webkit-keyframes referencecolors {
-    10% {background-color: #ffffff;}
-    60% {background-color: #FFCCCC;}
-    100% {background-color: #ffffff;}
-  }
+    10% {background-color: #ffcccc;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ffcccc;}
+}
+
 .referencedivlistitem:hover,
 .modalreferencedivlistitem:hover
 {
-		-webkit-animation-name: referencecolors;
-		background-image: -moz-linear-gradient(left, #000088 0%, #000033 15%, #000033 26%, #000066 48%, #0000AA 91%, #000088 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000088', endColorstr='#000088',GradientType=1 );
+	  background-color: #ffcccc;
+		-webkit-animation-name: referencecolors; /* Safari and Chrome */
+		animation: referencecolors 2s infinite;
+}
+
+@keyframes schemacolors /* IE and FF */
+{
+    10% {background-color: #ccffcc;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ccffcc;}
 }
 
 @-webkit-keyframes schemacolors {
-    10% {background-color: #ffffff;}
-    60% {background-color: #CCFFCC;}
-    100% {background-color: #ffffff;}
-  }
+    10% {background-color: #ccffcc;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ccffcc;}
+}
+  
 .schemadivlistitem:hover,
 .modalschemadivlistitem:hover
 {
-		-webkit-animation-name: schemacolors;
-		background-image: -moz-linear-gradient(left, #000088 0%, #000033 15%, #000033 26%, #000066 48%, #0000AA 91%, #000088 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000088', endColorstr='#000088',GradientType=1 );
+	  background-color: #ccffcc;
+		-webkit-animation-name: schemacolors; /* Safari and Chrome */
+		animation: schemacolors 2s infinite;
+}
+
+@keyframes triplecolors /* IE and FF */
+{
+    10% {background-color: #ccffff;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ccffff;}
 }
 
 @-webkit-keyframes triplecolors {
-    10% {background-color: #ffffff;}
-    60% {background-color: #CCFFFF;}
-    100% {background-color: #ffffff;}
-  }
+    10% {background-color: #ccffff;}
+    60% {background-color: #e9e9e9;}
+    100% {background-color: #ccffff;}
+}
+
 .tripledivlistitem:hover,
 .modaltripledivlistitem:hover
 {
-		-webkit-animation-name: triplecolors;
-		background-image: -moz-linear-gradient(left, #000088 0%, #000033 15%, #000033 26%, #000066 48%, #0000AA 91%, #000088 100%);
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000088', endColorstr='#000088',GradientType=1 );
+	  background-color: #ccffff;
+		-webkit-animation-name: triplecolors; /* Safari and Chrome */
+		animation: triplecolors 2s infinite;
 }
+
+/*-----------------------------------------------------------------------
+------------------ END ANIMATED LIST ITEM BACKGROUNDS -------------------
+-------------------------------------------------------------------------*/
 
 .modaldivlistitem,
 .modalmemedivlistitem,
@@ -753,6 +795,7 @@ textarea
 #searchString
 {
 	width:43%;
+	display:inline-block;
 }
 
 #modalbody #searchString
@@ -769,6 +812,7 @@ textarea
     /* this is the new drop button, in image form */
     width:12em;
     display:inline-block;
+    vertical-align: middle;
 }
 
 #divpredicateid {
@@ -986,12 +1030,12 @@ a.menulink
 	padding:1px 5px 1px 5px;
 	font-weight:bold;
 	vertical-align:middle;
-	line-height:25px;
+	line-height:30px;
 	margin-left:5px;
 	-webkit-border-radius: 4px;    /* for Safari */
 	-moz-border-radius: 4px;       /* for Firefox */
 	-khtml-border-radius: 4px;      /* for Linux */
-	border-radius: 4px
+	border-radius: 4px;
 	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
 	box-shadow:inset 0px 1px 0px 0px #ffffff;
