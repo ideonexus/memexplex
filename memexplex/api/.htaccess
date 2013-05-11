@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /api/
+
+#table + column + value
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ([^/]+)/([^/]+)/([^/]+)\.([a-zA-Z]{3,5})$  index.php?table=$1&column=$2&value=$3&format=$4 [L,QSA]
+
+#table + #id
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ([^/]+)/([^/]+)\.([a-zA-Z]{3,5})$  index.php?table=$1&value=$2&format=$3 [L,QSA]
+
+#table + formate
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ([^/]+)\.([a-zA-Z]{3,5})$  index.php?table=$1&format=$2 [L,QSA]
+
+#all else
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L,QSA]
+</IfModule>
