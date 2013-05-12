@@ -54,7 +54,7 @@ class TripleHtml
                 ,$tripleArray[0]
                 ,$pageObjectsXml
             );
-            $formField->setDestination("TripleList/");
+            $formField->setDestination("triplelist/");
             $formField->setDefaultValue("");
             $formField->setSource("");
             if ($formField->getSource(true) != "None")

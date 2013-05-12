@@ -18,7 +18,7 @@
         	<curatorid>Curator/Id</curatorid>
         </variablesXpaths>
         <methods>
-        	<setDestination>TripleList/</setDestination>
+        	<setDestination>triplelist/</setDestination>
         </methods>
     </formfield>
     <formfield>
@@ -33,7 +33,7 @@
         	<id>Id</id>
         </variablesXpaths>
         <methods>
-        	<setDestination>Triple/</setDestination>
+        	<setDestination>triple/</setDestination>
         </methods>
     </formfield>
 	<formfield>
@@ -72,7 +72,7 @@
         <id>taxonomy</id>
         <valueXpath>TaxonomyList</valueXpath>
         <methods>
-        	<setDestination>TripleList/</setDestination>
+        	<setDestination>triplelist/</setDestination>
         </methods>
     </formfield>
 </TripleListTable>

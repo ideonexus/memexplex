@@ -18,7 +18,7 @@
         	<curatorid>Curator/Id</curatorid>
         </variablesXpaths>
         <methods>
-        	<setDestination>MemeList/</setDestination>
+        	<setDestination>memelist/</setDestination>
         </methods>
     </formfield>
     <formfield>
@@ -30,7 +30,7 @@
         	<id>Id</id>
         </variablesXpaths>
         <methods>
-        	<setDestination>Meme/</setDestination>
+        	<setDestination>meme/</setDestination>
         </methods>
     </formfield>
     <formfield>
@@ -48,7 +48,7 @@
         <id>taxonomy</id>
         <valueXpath>TaxonomyList</valueXpath>
         <methods>
-        	<setDestination>MemeList/</setDestination>
+        	<setDestination>memelist/</setDestination>
         </methods>
     </formfield>
     <formfield>

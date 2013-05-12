@@ -327,8 +327,8 @@ function confirmDelete(recordtype,form)
         +"&formName=" + form
         +"&formFieldToSet=deletefunction"
         +"&formFieldValue=true"
-        ,300
-        ,150
+        ,450
+        ,200
         ,''
         ,true
     );

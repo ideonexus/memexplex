@@ -57,7 +57,7 @@
         </methods>
     </formfield>
     <formfield>
-        <label><![CDATA[Folksonomies (comma-separated) <a href="http://www.memexplex.com/Meme/id=213" target="_blank">?</a>]]></label>
+        <label><![CDATA[Folksonomies (comma-separated) <a href="http://mxplx.com/meme/213/" class="folkHelp" target="_blank">?</a>]]></label>
         <type>Taxonomy</type>
         <id>memeTaxonomies</id>
         <valueXpath>TaxonomyList</valueXpath>

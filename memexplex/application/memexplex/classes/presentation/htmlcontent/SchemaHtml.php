@@ -53,7 +53,7 @@ class SchemaHtml
                 ,$schemaArray[0]
                 ,$pageObjectsXml
             );
-            $formField->setDestination("SchemaList/");
+            $formField->setDestination("schemalist/");
             $formField->setDefaultValue("");
             $formField->setSource("");
             if ($formField->getSource(true) != "None")

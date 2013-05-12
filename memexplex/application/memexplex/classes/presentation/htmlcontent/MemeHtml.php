@@ -70,7 +70,7 @@ class MemeHtml
                 ,$memeArray[0]
                 ,$pageObjectsXml
             );
-            $formField->setDestination("MemeList/");
+            $formField->setDestination("memelist/");
             $formField->setDefaultValue("");
             $formField->setSource("");
             if ($formField->getSource(true) != "None"

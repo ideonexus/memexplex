@@ -23,8 +23,8 @@
      * local environment: strict errors, unsessionalized class directories...
      * Turning these options on makes us write cleaner code.
     */
-//    ini_set('display_errors', 1);
-//    ini_set('display_startup_errors', 1);
+    //ini_set('display_errors', 1);
+    //ini_set('display_startup_errors', 1);
     /**
      * Sessions expire in 24 hours of non-use to support all-nighters.
      */
@@ -141,8 +141,10 @@
      */
     if (isset($_GET['pageCode']))
     {
-        Constants::setConstant('CURRENT_PAGE_CODE', $_GET['pageCode']);
-        PageConfiguration::getInstance($_GET['pageCode']);
+        Constants::setConstant('CURRENT_PAGE_CODE'
+        		, PageConfiguration::verifyPageCode($_GET['pageCode'])
+        );
+        PageConfiguration::getInstance(CURRENT_PAGE_CODE);
     }
     //If no pageCode, default to MemeList page.
     else

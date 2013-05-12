@@ -2,82 +2,82 @@
 <menu>
     <menuItem>
         <label>Memes</label>
-        <link>MemeList/</link>
-        <icon>meme_blue.gif</icon>
+        <link>memelist/</link>
+        <icon>meme_white.png</icon>
         <childMenuItem>
             <pagecode>MemeList</pagecode>
             <label>My Memes</label>
-            <link>MemeList/domain=curator</link>
+            <link>memelist/domain=curator</link>
         </childMenuItem>
         <childMenuItem>
             <pagecode>MemeList</pagecode>
-            <label>Public Memes</label>
-            <link>MemeList/domain=omni</link>
+            <label>Memes</label>
+            <link>memelist/domain=omni</link>
         </childMenuItem>
         <childMenuItem>
             <pagecode>Meme</pagecode>
             <label>Add Meme</label>
-            <link>Meme/</link>
+            <link>meme/</link>
         </childMenuItem>
     </menuItem>
     <menuItem>
         <label>References</label>
-        <link>ReferenceList/</link>
-        <icon>reference_blue.gif</icon>
+        <link>referencelist/</link>
+        <icon>reference_white.png</icon>
         <childMenuItem>
             <pagecode>ReferenceList</pagecode>
             <label>My References</label>
-            <link>ReferenceList/domain=curator</link>
+            <link>referencelist/domain=curator</link>
         </childMenuItem>
         <childMenuItem>
             <pagecode>ReferenceList</pagecode>
-            <label>Public References</label>
-            <link>ReferenceList/domain=omni</link>
+            <label>References</label>
+            <link>referencelist/domain=omni</link>
         </childMenuItem>
         <childMenuItem>
             <pagecode>Reference</pagecode>
             <label>Add Reference</label>
-            <link>Reference/</link>
+            <link>reference/</link>
         </childMenuItem>
     </menuItem>
     <menuItem>
         <label>Triples</label>
-        <link>TripleList/</link>
-        <icon>triple_blue.gif</icon>
+        <link>triplelist/</link>
+        <icon>triple_white.png</icon>
         <childMenuItem>
         	<pagecode>TripleList</pagecode>
             <label>My Triples</label>
-            <link>TripleList/domain=curator</link>
+            <link>triplelist/domain=curator</link>
         </childMenuItem>
         <childMenuItem>
         	<pagecode>TripleList</pagecode>
-            <label>Public Triples</label>
-            <link>TripleList/domain=omni</link>
+            <label>Triples</label>
+            <link>triplelist/domain=omni</link>
         </childMenuItem>
         <childMenuItem>
         	<pagecode>Triple</pagecode>
             <label>Add Triple</label>
-            <link>Triple/</link>
+            <link>triple/</link>
         </childMenuItem>
     </menuItem>
     <menuItem>
         <label>Schemas</label>
-        <link>SchemaList/</link>
-        <icon>schema_blue.gif</icon>
+        <link>schemalist/</link>
+        <icon>schema_white.png</icon>
         <childMenuItem>
         	<pagecode>SchemaList</pagecode>
             <label>My Schemas</label>
-            <link>SchemaList/domain=curator</link>
+            <link>schemalist/domain=curator</link>
         </childMenuItem>
         <childMenuItem>
        		<pagecode>SchemaList</pagecode>
-            <label>Public Schemas</label>
-            <link>SchemaList/domain=omni</link>
+            <label>Schemas</label>
+            <link>schemalist/domain=omni</link>
         </childMenuItem>
         <childMenuItem>
         	<pagecode>Schema</pagecode>
             <label>Add Schema</label>
-            <link>Schema/</link>
+            <link>schema/</link>
         </childMenuItem>
     </menuItem>
     <!--  menuItem>
@@ -100,6 +100,19 @@
             <link>SEX/</link>
         </childMenuItem>
     </menuItem-->
+    <menuItem>
+        <label>Community Message</label>
+        <link>communityMessage.php?hidCommunityMessage=Toggle</link>
+        <system>COMMUNITY MESSAGE</system>
+    </menuItem>
+    <menuItem>
+        <label>Login</label>
+        <link>Login/</link>
+    </menuItem>
+    <menuItem>
+        <label>Sign Up</label>
+        <link>SignUp/</link>
+    </menuItem>
     <menuItem>
         <label>My Account</label>
         <link>MyAccount/</link>
@@ -128,19 +141,6 @@
             <label>Bookmark Tool</label>
             <link>Bookmark/</link>
         </childMenuItem-->
-    </menuItem>
-    <menuItem>
-        <label>Community Message</label>
-        <link>communityMessage.php?hidCommunityMessage=Toggle</link>
-        <system>COMMUNITY MESSAGE</system>
-    </menuItem>
-    <menuItem>
-        <label>Sign Up</label>
-        <link>SignUp/</link>
-    </menuItem>
-    <menuItem>
-        <label>Login</label>
-        <link>Login/</link>
     </menuItem>
     <menuItem>
         <label>Logout</label>

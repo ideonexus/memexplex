@@ -28,7 +28,7 @@
         	<curatorid>Curator/Id</curatorid>
         </variablesXpaths>
         <methods>
-        	<setDestination>ReferenceList/</setDestination>
+        	<setDestination>referencelist/</setDestination>
         </methods>
     </formfield>
     <formfield>
@@ -40,7 +40,7 @@
         	<id>Id</id>
         </variablesXpaths>
         <methods>
-        	<setDestination>Reference/</setDestination>
+        	<setDestination>reference/</setDestination>
         </methods>
     </formfield>
     <formfield>
@@ -56,7 +56,7 @@
         <id>referenceTaxonomies</id>
         <valueXpath>TaxonomyList</valueXpath>
         <methods>
-        	<setDestination>ReferenceList/</setDestination>
+        	<setDestination>referencelist/</setDestination>
         </methods>
     </formfield>
     <formfield>

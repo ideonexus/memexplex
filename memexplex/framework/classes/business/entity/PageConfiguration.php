@@ -26,6 +26,65 @@ class PageConfiguration
     private static $pageConfiguration;
 
     /**
+    * @var string
+    */                  
+    private static function pageConfigDirectory() {
+			  return $_SERVER['DOCUMENT_ROOT']
+                       . ROOT_FOLDER
+                       .'application/'
+                       . Constants::getConstant('CURRENT_APPLICATION')
+                       . '/config/pages/';
+    }
+    /**
+    * @var string
+    */
+    private static function frameworkConfigDirectory() {
+       return $_SERVER['DOCUMENT_ROOT']
+                       . ROOT_FOLDER
+                       . 'framework/config/pages/';
+    }
+    
+    /**
+    * Case-insensitve file search
+    */
+		private static function fileNameExists($directory, $fileName) {
+		    $fileArray = glob($directory . '*', GLOB_NOSORT);
+
+		    $fileNameLowerCase = strtolower($fileName);
+		    foreach($fileArray as $file) {
+		        if(strtolower(str_replace($directory,'',$file)) == $fileNameLowerCase) {
+		            return str_replace('.xml','',str_replace($directory,'',$file));
+		        }
+		    }
+		    return '';
+		}
+
+    /**
+    * Because unix file systems are case-sensitive, but URLs are not,
+    * we need to conduct a case-insensitve search of the page xml configuration directory.
+    * If a case-insenstive file exists, replace the PageCode with it's name so
+    * that it can properly key into all classes, etc.
+    */
+		public static function verifyPageCode($pageCode) {
+				$xmlFile = $pageCode . '.xml';
+				
+				$pageConfigFile = self::fileNameExists(self::pageConfigDirectory(), $xmlFile);
+				if ($pageConfigFile != '')
+				{
+					  return $pageConfigFile;
+				}
+				
+				$frameworkConfigFile = self::fileNameExists(self::frameworkConfigDirectory(), $xmlFile);
+				if ($frameworkConfigFile != '')
+				{
+					  return $frameworkConfigFile;
+				}
+				
+				/* Return original value for 404 error */
+		    return $pageCode;
+		}
+
+    /**
      * Loads the page configuration XML file and replaces nodes where
      * other files are referenced to build a single configuration.
      * 
@@ -63,27 +122,17 @@ class PageConfiguration
 //                throw new GeneralException($pageCode . ".xml failed to validate against page.xsd.","101010");
 //            }
 
-
+        //At this point our PageCode should be in the right Case
         $xmlFile = $pageCode . '.xml';
 
-        $pageConfigDirectory = $_SERVER['DOCUMENT_ROOT']
-                       . ROOT_FOLDER
-                       . 'application/'
-                       . Constants::getConstant('CURRENT_APPLICATION')
-                       . '/config/pages/';
-
-        $frameworkConfigDirectory = $_SERVER['DOCUMENT_ROOT']
-                                   . ROOT_FOLDER
-                                   . 'framework/config/pages/';
-
-        if (file_exists($pageConfigDirectory . $xmlFile))
+        if (file_exists(self::pageConfigDirectory() . $xmlFile))
         {
-            $config = simplexml_load_file($pageConfigDirectory . $xmlFile);
+            $config = simplexml_load_file(self::pageConfigDirectory() . $xmlFile);
         }
-        else if (file_exists($frameworkConfigDirectory . $xmlFile))
+        else if (file_exists(self::frameworkConfigDirectory() . $xmlFile))
         {
             //CHECK FRAMEWORK FOLDER
-            $config = simplexml_load_file($frameworkConfigDirectory . $xmlFile);
+            $config = simplexml_load_file(self::frameworkConfigDirectory() . $xmlFile);
         }
         else
         {
@@ -97,14 +146,14 @@ class PageConfiguration
         {
             if (isset($form->config))
             {
-                if (file_exists($pageConfigDirectory . $form->config . ".xml"))
+                if (file_exists(self::pageConfigDirectory() . $form->config . ".xml"))
                 {
-                    $xmlcfg[] = simplexml_load_file($pageConfigDirectory . $form->config . ".xml");
+                    $xmlcfg[] = simplexml_load_file(self::pageConfigDirectory() . $form->config . ".xml");
                     $node[] = $form;
                 }
-                elseif (file_exists($frameworkConfigDirectory . $form->config . ".xml"))
+                elseif (file_exists(self::frameworkConfigDirectory() . $form->config . ".xml"))
                 {
-                    $xmlcfg[] = simplexml_load_file($frameworkConfigDirectory . $form->config . ".xml");
+                    $xmlcfg[] = simplexml_load_file(self::frameworkConfigDirectory() . $form->config . ".xml");
                     $node[] = $form;
                 }
                 else
@@ -113,6 +162,7 @@ class PageConfiguration
                 }
             }
         }
+
         $i = 0;
         foreach ($xmlcfg as $xml)
         {

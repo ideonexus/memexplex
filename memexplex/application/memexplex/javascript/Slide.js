@@ -27,8 +27,8 @@ var show = null;
 var hide = null;
 var lastQuoteExpanded;
 //These two adjust speed of slide
-var y = 10; 
-var z = 4;
+var y = 1; 
+var z = 15;
 
 function expandQuote(quoteid){
 	showHt = "";

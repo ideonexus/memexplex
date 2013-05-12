@@ -78,7 +78,7 @@ class ReferenceHtml
                 ,$referenceArray[0]
                 ,$pageObjectsXml
             );
-            $formField->setDestination("ReferenceList/");
+            $formField->setDestination("referencelist/");
             $formField->setDefaultValue("");
             $formField->setSource("");
             if ($formField->getSource(true) != "None")

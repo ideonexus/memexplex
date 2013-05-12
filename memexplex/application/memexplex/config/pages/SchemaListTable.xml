@@ -18,7 +18,7 @@
         	<curatorid>Curator/Id</curatorid>
         </variablesXpaths>
         <methods>
-        	<setDestination>SchemaList/</setDestination>
+        	<setDestination>schemalist/</setDestination>
         </methods>
     </formfield>
     <formfield>
@@ -33,7 +33,7 @@
         	<id>Id</id>
         </variablesXpaths>
         <methods>
-        	<setDestination>Schema/</setDestination>
+        	<setDestination>schema/</setDestination>
         </methods>
     </formfield>
 	<formfield>
@@ -54,7 +54,7 @@
         <id>taxonomy</id>
         <valueXpath>TaxonomyList</valueXpath>
         <methods>
-        	<setDestination>SchemaList/</setDestination>
+        	<setDestination>schemalist/</setDestination>
         </methods>
     </formfield>
     <formfield>
