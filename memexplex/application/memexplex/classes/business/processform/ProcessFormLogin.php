@@ -200,7 +200,7 @@ implements ProcessFormInterface
                 //set when the login page redirects.
                 $setCookie = $amp.'setcookie=true';
             }
-            $url .= "MemeList/domain=curator".$setCookie.$amp;
+            $url .= "memelist/domain=curator".$setCookie.$amp;
             $errors->buildRedirect($url);
         }
         else

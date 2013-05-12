@@ -17,7 +17,7 @@ implements FormFieldInterface
      */
     public function setSource()
     {
-        if ($this->defaultValue == ''
+        if ($this->defaultValue === ''
             && ApplicationSession::isNameSet('CURATOR_PUBLISH_BY_DEFAULT')
         )
         {

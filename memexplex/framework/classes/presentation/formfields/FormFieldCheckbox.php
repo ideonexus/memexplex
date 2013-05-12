@@ -20,7 +20,6 @@ implements FormFieldInterface
     {
 
         $checked = '';
-        $offswitch = '';
         if (BoolUtilities::toBoolFlexible($this->defaultValue))
         {
             $checked = ' checked';

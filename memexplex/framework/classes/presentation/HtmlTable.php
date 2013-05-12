@@ -434,7 +434,8 @@ class HtmlTable
             $htmlFormField->setDefaultValue($formFieldDisplayValue);
         }
         elseif ((string)SimpleXml::getSimpleXmlItem($this->tableData,$formfield->valueXpath)
-        	|| SimpleXml::getSimpleXmlItem($this->tableData,$formfield->valueXpath))
+        	|| SimpleXml::getSimpleXmlItem($this->tableData,$formfield->valueXpath)
+        	|| SimpleXml::getSimpleXmlItem($this->tableData,$formfield->valueXpath) == 0)
         {
             $htmlFormField->setDefaultValue
             (

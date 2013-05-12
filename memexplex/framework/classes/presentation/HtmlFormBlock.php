@@ -150,7 +150,8 @@ class HtmlFormBlock
             $htmlFormField->setDefaultValue($formFieldDisplayValue);
         }
         elseif ((string)SimpleXml::getSimpleXmlItem($this->pageObjectsXml,$formfield->valueXpath)
-        	|| SimpleXml::getSimpleXmlItem($this->pageObjectsXml,$formfield->valueXpath))
+        	|| SimpleXml::getSimpleXmlItem($this->pageObjectsXml,$formfield->valueXpath)
+        	|| SimpleXml::getSimpleXmlItem($this->pageObjectsXml,$formfield->valueXpath) == 0)
         {
             $htmlFormField->setDefaultValue
             (
