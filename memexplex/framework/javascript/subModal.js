@@ -110,7 +110,7 @@ function initPopUp() {
 	theBody = document.getElementsByTagName('BODY')[0];
 	popmask = document.createElement('div');
 	popmask.id = 'popupMask';
-	popmask.setAttribute('style','background-image:url("' + applicationRootFolder + 'framework/javascript/submodal/maskBG.png");');
+	popmask.setAttribute('style','background-image:url("' + applicationRootFolder + 'framework/javascript/submodal/transparent.png");');
 	popcont = document.createElement('div');
 	popcont.id = 'popupContainer';
 	popcont.innerHTML = '' +
