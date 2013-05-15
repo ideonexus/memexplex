@@ -105,7 +105,7 @@ implements HtmlContentInterface
                     .MemeHtml::getBlock($formArray,$subjectMemeXml,false,$searchParameters->getId())
                     .'</div>'
                     .'<div class="modaltripledivlistitem" style="text-align:center;">'
-                    . '<a class="submodal-600-525"'
+                    . '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeListModal/'
@@ -116,7 +116,7 @@ implements HtmlContentInterface
                     .'<div id="predicateDisplay" class="predicatedisplay">'
                     .$predicateDescription
                     .'</div>'
-                    . '<a class="submodal-600-525"'
+                    . '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeListModal/'

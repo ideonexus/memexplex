@@ -51,7 +51,7 @@ implements FormFieldInterface
         	.' style="width:'.$this->width.'px;height:'.$this->height.'px;'
         	.'float:right;border:solid;position:relative;top:-20px;'
         	.'text-align:center;margin-bottom:-20px;">'
-        	.'<a class="submodal-600-525"'
+        	.'<a class="'.SUBMODAL_CLASS.'"'
         	.' href="'
             .ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
             .'AmazonSearch/'

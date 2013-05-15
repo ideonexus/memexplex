@@ -49,7 +49,7 @@ implements FormFieldInterface
         $this->source = 
             '<div'
         	.' class="googleBookDisplay">'
-        	.'<a class="submodal-600-525"'
+        	.'<a class="'.SUBMODAL_CLASS.'"'
         	.' href="'
             .ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
             .'GoogleBooksSearch/'

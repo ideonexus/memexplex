@@ -82,7 +82,7 @@ class TripleHtml
             {
                 $TripleDisplay =
                     '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
-                	. '<a class="submodal-600-525"'
+                	. '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'TripleModal/'

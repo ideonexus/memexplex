@@ -170,7 +170,7 @@ class ReferenceHtml
                 $ReferenceDisplay =
                     '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
                 	. '<div class="pagination">'
-                    . '<a class="submodal-600-525"'
+                    . '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'ReferenceModal/'
@@ -179,7 +179,7 @@ class ReferenceHtml
                     . '">'
                     . 'Add New Reference'
                 	. '</a>'
-                    . '<a class="submodal-600-525"'
+                    . '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'ReferenceListModal/'

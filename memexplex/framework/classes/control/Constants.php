@@ -17,6 +17,7 @@ class Constants
          'CURRENT_APPLICATION'
         ,'CURRENT_PAGE_CODE'
         ,'AJAX_METHOD'
+        ,'SUBMODAL_CLASS'
     );
 
     /**

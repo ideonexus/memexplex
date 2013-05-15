@@ -100,7 +100,7 @@ implements HtmlContentInterface
                     if ($referenceHtml == "")
                     {
                         $associateLinks .=
-                        	'<a class="submodal-600-525"'
+                        	'<a class="'.SUBMODAL_CLASS.'"'
                         	.' href="'
                             . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                             . 'ReferenceModal/'
@@ -109,7 +109,7 @@ implements HtmlContentInterface
                             . '">'
                             . 'Add New Reference'
                         	. '</a>'
-                            . '<a class="submodal-600-525"'
+                            . '<a class="'.SUBMODAL_CLASS.'"'
                             .' href="'
                             . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                             . 'ReferenceListModal/'
@@ -123,7 +123,7 @@ implements HtmlContentInterface
                     }
                     
                     $associateLinks .=
-                    	'<a class="submodal-600-525"'
+                    	'<a class="'.SUBMODAL_CLASS.'"'
                     	.' href="'
                         . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                         . 'SchemaModal/'
@@ -132,7 +132,7 @@ implements HtmlContentInterface
                         . '">'
                         . 'Add to New Schema'
                     	. '</a>'
-                        . '<a class="submodal-600-525"'
+                        . '<a class="'.SUBMODAL_CLASS.'"'
                     	.' href="'
                         . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                         . 'SchemaListModal/'

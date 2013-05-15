@@ -1241,7 +1241,7 @@ input[id^="author"]
 	 height:40px;
 }
 
-.submodal-600-525 :not(.googleBookDisplayText):not(.googleBookDisplayImage)
+.submodal-650-525 :not(.googleBookDisplayText):not(.googleBookDisplayImage)
 {
 	 display:none;
 	-webkit-border-radius: 4px;    /* for Safari */
@@ -1257,7 +1257,7 @@ input[id^="author"]
 	background-color:#ededed;
 }
 
-.submodal-600-525:hover :not(.googleBookDisplayText)
+.submodal-650-525:hover :not(.googleBookDisplayText)
 {
 	-moz-box-shadow:inset 0px 1px 0px 0px #000066;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #000066;

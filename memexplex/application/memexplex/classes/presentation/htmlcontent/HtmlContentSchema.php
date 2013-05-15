@@ -144,7 +144,7 @@ implements HtmlContentInterface
                 $associateLinks =
                     '<link rel="stylesheet" type="text/css" href="'.ROOT_FOLDER.'framework/css/subModal.css" />'
                 	. '<div class="pagination">'
-                	. '<a class="submodal-600-525"'
+                	. '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeModal/'
@@ -153,7 +153,7 @@ implements HtmlContentInterface
                     . '">'
                     . 'Add New Meme'
                 	. '</a>'
-                    . '<a class="submodal-600-525"'
+                    . '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'MemeListModal/'
@@ -165,7 +165,7 @@ implements HtmlContentInterface
                 	. '</a>'
                 	. '</div>'
                 	. '<div class="pagination">'
-                	. '<a class="submodal-600-525"'
+                	. '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'SchemaModal/'
@@ -174,7 +174,7 @@ implements HtmlContentInterface
                     . '">'
                     . 'Add New Child Schema'
                 	. '</a>'
-                    . '<a class="submodal-600-525"'
+                    . '<a class="'.SUBMODAL_CLASS.'"'
                 	.' href="'
                     . ApplicationSession::getValue('CURRENT_PHP_APPLICATION_WEB_ADDRESS')
                     . 'SchemaListModal/'

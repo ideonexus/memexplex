@@ -44,10 +44,14 @@
         )
     );
 
-    if (isset($_SESSION['classDirectories']))
-    {
-        unset($_SESSION['classDirectories']); //exit;
-    }
+    /**
+    * Uncomment this if you need to refresh the class
+    * directories - used in development.
+    */
+    //if (isset($_SESSION['classDirectories']))
+    //{
+    //    unset($_SESSION['classDirectories']); //exit;
+    //}
 
     /**
      * LOAD __autoload() FUNCTION TO LOAD CLASSES
@@ -89,6 +93,11 @@
     	Constants::setConstant('AJAX_METHOD', false);
     }
 
+		/**
+		* Set the width and height for the submodal windows.
+		*/
+		Constants::setConstant('SUBMODAL_CLASS', 'submodal-650-500');
+		
     /**
      * INITIALIZE APPLICATION SESSION VARIABLES
      * The ApplicationSession class is a workaround for PHP's lack of
