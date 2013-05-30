@@ -172,7 +172,8 @@ class MemeHtml
                 {
                     case "Date Published":
                         $datePublishedSource = $htmlFormField->getSource(true);
-                        if ($datePublishedSource != "31 DEC 1969")
+                        if ($datePublishedSource != "31 DEC 1969" 
+                        	&& $datePublishedSource != "01 JAN 1970")
                         {
                             $datePublished = true;
                         }

@@ -73,6 +73,11 @@ implements ProcessFormInterface
             $purifier = HtmlValidation::getHtmlPurifier();
             $schemaDescription = $purifier->purify($this->formValuesArray["schemaDescription"]);
             
+						if (mb_strlen($schemaDescription) > 10000)
+						{
+								ErrorCollection::addUserErrorMessage("schemaDescription", "Description is too long (".strlen($schemaDescription)."/10000 chars)");
+					  }
+						
             $datePublished = $this->formValuesArray["datepublished"];
             if ((($function == Delta::UPDATE
                 && $this->formValuesArray["originaldisseminate"] != 'Y')

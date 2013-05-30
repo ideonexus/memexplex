@@ -69,6 +69,11 @@ implements ProcessFormInterface
             $purifier = HtmlValidation::getHtmlPurifier();
             $tripleDescription = $purifier->purify($this->formValuesArray["tripleDescription"]);
             
+						if (mb_strlen($tripleDescription) > 10000)
+						{
+								ErrorCollection::addUserErrorMessage("tripleDescription", "Description is too long (".strlen($tripleDescription)."/10000 chars)");
+					  }
+						
             if (trim($this->formValuesArray["tripleTitle"]) == "")
             {
                 ErrorCollection::addUserErrorMessage(

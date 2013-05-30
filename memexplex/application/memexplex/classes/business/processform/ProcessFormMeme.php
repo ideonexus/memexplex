@@ -72,6 +72,16 @@ implements ProcessFormInterface
             $text = $purifier->purify($this->formValuesArray["text"]);
             $quote = $purifier->purify($this->formValuesArray["quote"]);
 
+						if (mb_strlen($text) > 10000)
+						{
+								ErrorCollection::addUserErrorMessage("text", "Text is too long (".strlen($text)."/10000 chars)");
+					  }
+						
+						if (strlen($quote) > 10000)
+						{
+								ErrorCollection::addUserErrorMessage("quote", "Quote is too long (".strlen($quote)."/10000 chars)");
+						}
+
             $datePublished = $this->formValuesArray["datepublished"];
             if ((($function == Delta::UPDATE
                 && $this->formValuesArray["originaldisseminate"] != 'Y')
