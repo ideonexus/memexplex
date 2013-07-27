@@ -25,7 +25,10 @@ implements FormFieldInterface
      */
     public function setGetViceAjax($getViceAjax = false)
     {
-        $this->getViceAjax = $getViceAjax;
+				if ($getViceAjax == 'true')
+				{
+        	$this->getViceAjax = true;
+        }
     }
 
     /**
