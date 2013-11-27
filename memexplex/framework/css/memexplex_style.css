@@ -807,7 +807,7 @@ textarea
     overflow:hidden; /* this hides the select's drop button */
     padding:0; 
     margin:0; 
-    background: white url('/framework/images/arrow-down.png') no-repeat bottom right;
+    background: white url('../images/arrow-down.png') no-repeat bottom right;
     background-size:40px 40px;
     /* this is the new drop button, in image form */
     width:12em;
@@ -1290,7 +1290,7 @@ input[id^="author"]
   margin: 0;
   padding: 0;
   border: 0;
-  background: transparent url('/framework/images/play_button.png') no-repeat center top;
+  background: transparent url('../images/play_button.png') no-repeat center top;
   background-size:75px 75px;
   text-indent: -1000em;
   cursor: pointer; /* hand-shaped cursor */
@@ -1305,7 +1305,7 @@ input[id^="author"]
   margin: 0;
   padding: 0;
   border: 0;
-  background: transparent url('/framework/images/delete_button.png') no-repeat center top;
+  background: transparent url('../images/delete_button.png') no-repeat center top;
   background-size:75px 75px;
   text-indent: -1000em;
   cursor: pointer; /* hand-shaped cursor */
@@ -1321,7 +1321,7 @@ input[id^="author"]
   margin-right:2px;
   padding: 0;
   border: 0;
-  background: transparent url('/framework/images/search_button.png') no-repeat center top;
+  background: transparent url('../images/search_button.png') no-repeat center top;
   background-size:45px 45px;
   text-indent: -1000em;
   cursor: pointer; /* hand-shaped cursor */
