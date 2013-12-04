@@ -41,6 +41,11 @@
     Constants::setConstant('CURRENT_PAGE_CODE', $filterArray['pageCode']);
     PageSession::initialize(CURRENT_PAGE_CODE);
 
+		/**
+		* Set the width and height for the submodal windows.
+		*/
+		Constants::setConstant('SUBMODAL_CLASS', 'submodal-650-500');
+
     /**
      * INITIALIZE ERROR AND EXCEPTION HANDLING
      */
